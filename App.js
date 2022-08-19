@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Videoks from './src/components/organisms/Videoks';
 import VideoTeste from './assets/videoteste.mp4'
+import Home from './src/Templates/Home';
 
 export default function App() {
 
@@ -37,8 +38,8 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Videoks options={videoJsOptions} onReady={handlePlayerReady} />
-      
+      {/* <Videoks options={videoJsOptions} onReady={handlePlayerReady} /> */}
+      <Home/>
       <StatusBar style="auto" />
     </View>
   );
