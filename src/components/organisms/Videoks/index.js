@@ -47,6 +47,8 @@ export const Videoks = (props) => {
     <div data-vjs-player>
       <video ref={videoRef} className='video-js vjs-big-play-centered'>
         <track src={Legenda}kind="captions" srcLang="en" label="English"/>
+
+        
         </video>
     </div>
   );

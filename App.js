@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Videoks from './src/components/organisms/Videoks';
 import VideoTeste from './assets/videoteste.mp4'
 
@@ -14,9 +14,11 @@ export default function App() {
     responsive: true,
     fluid: true,
     sources: [{
-      src: VideoTeste,
+      src: '//vjs.zencdn.net/v/oceans.mp4',
       type: 'video/mp4'
-    }]
+    },
+  {src:"https://www.w3schools.com/html/horse.ogg", type:"audio/ogg" }
+  ]
   };
 
   const handlePlayerReady = (player) => {
@@ -30,10 +32,13 @@ export default function App() {
     player.on('dispose', () => {
       videojs.log('player will dispose');
     });
+
+   
   };
   return (
     <View style={styles.container}>
       <Videoks options={videoJsOptions} onReady={handlePlayerReady} />
+      
       <StatusBar style="auto" />
     </View>
   );
@@ -42,7 +47,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
