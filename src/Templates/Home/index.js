@@ -1,8 +1,7 @@
 import React from 'react';
-import './index.css'
+import Card from '../../components/molecules/Card'
 
 export const Home = (props) => {
-
   return (
     <div className='home'>
       
