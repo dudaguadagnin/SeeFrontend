@@ -3,6 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Videoks from './src/components/organisms/Videoks';
 import VideoTeste from './assets/videoteste.mp4'
+// import Star from './src/components/atoms/Star';
+import { CardImage } from './src/components/atoms/CardImage';
+import GenreIcon from './src/components/atoms/GenreIcon';
 
 export default function App() {
 
@@ -37,17 +40,20 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Videoks options={videoJsOptions} onReady={handlePlayerReady} />
-      
+      {/* <Videoks options={videoJsOptions} onReady={handlePlayerReady} /> */}
+      {/* <Star pequena/> */}
+      {/* <CardImage /> */}
+      <GenreIcon />
       <StatusBar style="auto" />
     </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
   },
