@@ -1,12 +1,12 @@
 import React from 'react';
 import './index.css';
-import cartaz from '../../../../assets/spiderman.jpg';
+import cartaz from '../../../../assets/image22.png';
 
 export const CardImage = (props) => {
 
   return (
     <div >
-      <img src={cartaz} height="340">
+      <img src={cartaz} className={props.size === 'medium' ? 'image-medium' : 'image-small'}>
       </img>
     </div>
   );

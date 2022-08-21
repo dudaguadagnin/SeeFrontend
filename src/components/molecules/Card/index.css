@@ -1,6 +1,21 @@
 .card {
-    background: gray;
     width: 92px;
     height: 168px;
     border-radius: 9px;
+}
+.card-body-image {
+    margin: 0;
+    padding: 0;
+}
+.card-body-info {
+    margin-top: -9px;
+    display: flex;
+    justify-content: flex-start;
+}
+.card-info-avaliate {
+    display: flex;
+    padding: 0px 1px;
+}
+.card-body-time {
+    padding-left: 7px;
 }

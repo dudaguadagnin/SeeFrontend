@@ -1,5 +1,10 @@
 img {
-    width: 100px;
-    height: 150px; 
+   /* width: 100px;
+    height: 150px; */
     border-radius: 9px;
 }
+
+.image-medium {
+    width: 92px;
+    height: 134px;
+} 
