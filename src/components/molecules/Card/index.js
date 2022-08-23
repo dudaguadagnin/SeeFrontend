@@ -7,21 +7,22 @@ import './index.css'
 
 
 export const Card = (props) => {
+  console.log(props)
   return (
     <div className='card'>
       <div className='card-body-image'>
-        <CardImage size="medium"/>
+        <CardImage cartaz={props.item.cartaz} size="medium"/>
       </div>
       <div className='card-body-title'>
-        <CardTitle>Uma Dobra no</CardTitle>
+        <CardTitle>{props.item.title}</CardTitle>
       </div>
       <div className='card-body-info'>
         <div className='card-info-avaliate'>
           <Star pequena />
-          <GenericText size="small" color="gray">4.5</GenericText>
+          <GenericText size="small" color="gray">{props.item.evaluation}</GenericText>
         </div>
         <div className='card-body-time'></div>
-        <GenericText size="small" color="gray">2h, 28min</GenericText>
+        <GenericText size="small" color="gray">{props.item.duration}</GenericText>
       </div>
 
 

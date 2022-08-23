@@ -1,55 +1,32 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import Videoks from './src/components/organisms/Videoks';
-import VideoTeste from './assets/videoteste.mp4'
 import Home from './src/components/organisms/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import VideoPlayer from './src/components/organisms/VideoPlayer';
 
 export default function App() {
 
-  const playerRef = React.useRef(null);
+  
 
-  const videoJsOptions = {
-    autoplay: true,
-    controls: true,
-    responsive: true,
-    fluid: true,
-    sources: [{
-      src: '//vjs.zencdn.net/v/oceans.mp4',
-      type: 'video/mp4'
-    },
-  {src:"https://www.w3schools.com/html/horse.ogg", type:"audio/ogg" }
-  ]
-  };
+  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
 
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
 
-    // You can handle player events here, for example:
-    player.on('waiting', () => {
-      videojs.log('player is waiting');
-    });
-
-    player.on('dispose', () => {
-      videojs.log('player will dispose');
-    });
-
-   
-  };
   return (
-    <View style={styles.container}>
-      <Home/>
-      <StatusBar style="auto" />
-    </View>
-
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={VideoPlayer} />
+      </Tab.Navigator>
+     {/* <Stack.Navigator >
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}} />
+        <Stack.Screen name="player" component={VideoPlayer} options={{ headerShown: false}} />
+      </Stack.Navigator>*/}
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#12142B',
-  //  alignItems: 'center',
-    //justifyContent: 'center',
-  },
-});

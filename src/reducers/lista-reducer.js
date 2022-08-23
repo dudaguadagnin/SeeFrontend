@@ -1,7 +1,7 @@
-import {listaAction} from '../actions'
+import {ListaAction} from '../actions'
 const initState = [{id:1, nome: 'arroz'}, {id:2, nome: 'feijão'}]
 
-const ListaReducer = (state = initState, action) => {
+const ListaReducer = (state = initState, action = ListaAction) => {
     switch(action.type) {
         case action.ADD:
             return[...state, ...action.payload];
