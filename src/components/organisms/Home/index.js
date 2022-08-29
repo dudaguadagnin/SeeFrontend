@@ -1,10 +1,8 @@
 import React from 'react';
-import Card from '../../molecules/Card'
 import CardSlider from '../../molecules/CardSlider'
 import Videoks from '../../molecules/Videoks';
-// import Star from './src/components/atoms/Star';
-//import { CardImage } from './src/components/atoms/CardImage';
-//import GenreIcon from './src/components/atoms/GenreIcon';
+import NavBar from '../../molecules/NavBar'
+import './index.css'
 
 export const Home = (props) => {
   const filmes = [
@@ -112,15 +110,28 @@ export const Home = (props) => {
       cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
     },
   ]
-
-
-
   return (
     <div className='home'>
-      <CardSlider midia={filmes}/>
-      <CardSlider midia={series}/>
+      <NavBar
+        to={'Player'}
+        activeClassName="active-link"
+        onClick={() => closeMenu()}
+        exact
+      >
+      </NavBar>
+      <CardSlider midia={filmes} />
+      <CardSlider midia={series} />
     </div>
   );
 }
 
 export default Home;
+/*
+<Button
+          title="Add some friends"
+          onPress={() =>
+            props.navigation.navigate('Player')
+          }
+        />
+
+*/

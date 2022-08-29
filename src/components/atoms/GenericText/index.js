@@ -3,7 +3,7 @@ import './index.css'
 
 
 export const GenericText = (props) => {
-    // colors = gray || black || white
+    // color = gray || black || white
     // size = small || medium || large
 
   return (

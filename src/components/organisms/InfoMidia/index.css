@@ -1,0 +1,102 @@
+.InfoMidia {
+    background-color: #12142B;
+    height: 100%;
+}
+.info-header {
+    display: flex;
+    padding: 15px 27px;
+}
+.inf-flex {
+    display: flex;
+}
+.info-header-inicial-info {
+    padding: 2px 19px;
+}
+.info-header-avaliate {
+    padding: 0px 4px 0px 0px;
+}
+.info-avalitate {
+    padding: 2px 0px;
+}
+.info-header-text {
+    margin: -4px 0px;
+}
+
+.info-avaliate-padd {
+    padding: 0px 6px 0px;
+}
+.info-header-genre {
+    padding: 4px 0px 0px 2px;
+}
+.info-header-text-padd {
+    padding-right: 7px;
+}
+.info-header-button {
+    padding: 7px 0px 7px 7px;
+    background-color: #116C72;
+    margin-top: 8px;
+    border-radius: 55px;
+    display: flex;
+    width: 110px;
+    align-items: center;
+}
+.info-play-button {
+    height: 14px;
+    width: 15px;
+}
+.info-header-assistir {
+    font-size: 11px;
+    font-family: 'Poppins Bold';
+    padding-left: 5px;
+    color: white;
+}
+.info-sinopse {
+    margin: -8px 31px 4px 27px;
+}
+.info-sinopse-description {
+    line-height: 16px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.info-sinopse-arrow-ler {
+    width: 11px;
+    height: 7px;
+    padding-right: 7px;
+}
+.info-sinopse-arrow-ler-menos {
+    width: 11px;
+    height: 7px;
+    padding-right: 7px;
+}
+.info-sinopse-ler-mais {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.info-sinopse-ler-menos {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.info-avaliate {
+
+}
+.info-read-comment {
+
+}
+.info-read-comment-mais {
+
+}
+.info-sinopse-arrow-ver-mais {
+    width: 11px;
+    height: 7px;
+    padding-right: 7px;
+}
+.info-read-comment-menos {
+
+}
+.info-sinopse-arrow-ver-menos {
+    width: 11px;
+    height: 7px;
+    padding-right: 7px;
+}

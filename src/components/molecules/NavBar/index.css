@@ -1,0 +1,81 @@
+.nav-bar {
+    background-color: #12142B;
+    height: 90px;
+}
+.menuNav {
+    overflow-y: scroll;
+    list-style: none;
+    position: fixed;
+    top: 70px;
+    background: none;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    
+}
+.navbutton {
+    background-color: #3fffd2;
+}
+
+.menuNav.showMenu {
+    width: 100%;
+    background-color: #12142B;
+    padding: 23px 27px;
+    z-index: 9;
+}
+a {
+    display: block;
+    padding: 10px 40px;
+    text-decoration: none;
+    color: #3fffd2;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.menuNav .nav-ul-li{
+    color: white;
+    font-size: 20px;
+    padding: 0px 0px 14px;
+}
+.nav-ol {
+    list-style: none;
+    color: white;
+    font-size: 20px;
+    padding: 0px 0px 15px;
+}
+.nav-ol-li {
+    list-style: none;
+    color: white;
+    font-size: 16.5px;
+    padding: 0px 17px 4px;
+}
+
+.nav-ol-li:first-child {
+    list-style: none;
+    color: white;
+    font-size: 16.5px;
+    padding: 8px 16px 4px
+}
+
+.nav-button-toggle {
+    width: 27.73px;
+    height: 23px
+}
+.nav-hamb {
+    width: 34.73px;
+    height: 31px;
+}
+.nav-bar-components {
+    display: flex;
+    padding: 14px 27px 16px 27px;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo {
+    width: 87.96px;
+    height: 63.19px;
+    
+}
+.nav-search {
+    width: 28px;
+    height: 27px;
+}
