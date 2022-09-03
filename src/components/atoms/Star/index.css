@@ -3,11 +3,16 @@ img {
     height: 150px; 
 }
 
-.classPequena{
+.class-pequena {
+    width: 9.93px;
+    height: 8.93px;
+}
+.class-undefined {
     width: 9.93px;
     height: 8.93px;
 }
 
-.classMedia{
-
+.class-media {
+    width: 20.93px;
+    height: 19.93px;
 }

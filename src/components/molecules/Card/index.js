@@ -18,7 +18,7 @@ export const Card = (props) => {
       </div>
       <div className='card-body-info'>
         <div className='card-info-avaliate'>
-          <Star pequena />
+          <Star size="pequena" />
           <GenericText size="small" color="gray">{props.item.evaluation}</GenericText>
         </div>
         <div className='card-body-time'></div>

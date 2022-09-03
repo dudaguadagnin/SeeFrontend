@@ -1,6 +1,5 @@
 .InfoMidia {
     background-color: #12142B;
-    height: 100%;
 }
 .info-header {
     display: flex;
@@ -37,7 +36,7 @@
     margin-top: 8px;
     border-radius: 55px;
     display: flex;
-    width: 110px;
+    width: 102px;
     align-items: center;
 }
 .info-play-button {
@@ -46,7 +45,8 @@
 }
 .info-header-assistir {
     font-size: 11px;
-    font-family: 'Poppins Bold';
+    font-family: system-ui;
+    font-weight: 600;
     padding-left: 5px;
     color: white;
 }
@@ -79,13 +79,24 @@
     justify-content: center;
 }
 .info-avaliate {
-
+    margin: 26px 27px 0px;
+}
+.info-avaliate-stars {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    justify-content: space-evenly;
+    margin: 11px 82px;
+    padding: 6px 9px;
+    border-radius: 20px;
 }
 .info-read-comment {
-
+    margin: 0 27px;
 }
 .info-read-comment-mais {
-
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 }
 .info-sinopse-arrow-ver-mais {
     width: 11px;
@@ -93,10 +104,21 @@
     padding-right: 7px;
 }
 .info-read-comment-menos {
-
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 }
 .info-sinopse-arrow-ver-menos {
     width: 11px;
     height: 7px;
     padding-right: 7px;
+}
+.Info-write-comment {
+    margin: 0 27px;
+}
+.info-footer {
+    margin: 30px 0 0 27px;
+}
+.info-footer-cards {
+    margin: 13px 0;
 }
