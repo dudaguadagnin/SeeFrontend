@@ -5,9 +5,10 @@ import NavBar from '../../molecules/NavBar'
 import './index.css'
 
 export const Home = (props) => {
+  console.log(props)
   const filmes = [
     {
-      title: 'Filme titulo',
+      title: 'Filme 1 hjjh hgjhg hjgu',
       description: 'é um filme bacana',
       genre: 'Ação',
       evaluation: '4.5',
@@ -16,7 +17,7 @@ export const Home = (props) => {
       cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
     },
     {
-      title: 'Filme titulo',
+      title: 'Filme 2 ntjh jhyfjyukfiu',
       description: 'é um filme bacana',
       genre: 'Ação',
       evaluation: '4.5',
@@ -25,7 +26,7 @@ export const Home = (props) => {
       cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
     },
     {
-      title: 'Filme titulo',
+      title: 'Filme 3',
       description: 'é um filme bacana',
       genre: 'Ação',
       evaluation: '4.5',
@@ -34,7 +35,7 @@ export const Home = (props) => {
       cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
     },
     {
-      title: 'Filme titulo',
+      title: 'Filme 4',
       description: 'é um filme bacana',
       genre: 'Ação',
       evaluation: '4.5',
@@ -43,7 +44,7 @@ export const Home = (props) => {
       cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
     },
     {
-      title: 'Filme titulo',
+      title: 'Filme 5',
       description: 'é um filme bacana',
       genre: 'Ação',
       evaluation: '4.5',
@@ -119,8 +120,8 @@ export const Home = (props) => {
         exact
       >
       </NavBar>
-      <CardSlider midia={filmes} />
-      <CardSlider midia={series} />
+      <CardSlider midia={filmes} nav={props.navigation}/>
+      <CardSlider midia={series}  nav={props.navigation}/>
     </div>
   );
 }

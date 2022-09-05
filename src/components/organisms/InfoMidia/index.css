@@ -122,3 +122,30 @@
 .info-footer-cards {
     margin: 13px 0;
 }
+.info-temporada {
+    color: white;
+    padding-bottom: 3px;
+}
+.showTemp {
+    
+}
+.ocultoTemp {
+    
+}
+.info-footer-cards-carrossel {
+    margin-bottom: 20px;
+}
+.info-temporada-texto {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 20px;
+}
+.info-temporada-arrow {
+    width: 15px;
+    height: 10px;
+    margin-right: 13px;
+}
+.info-temporada-touch {
+    padding: 16px 0px 11px 33px;
+}
+

@@ -1,0 +1,19 @@
+.card-horizontal {
+    height: 96px;
+    width: 147px;
+    border-radius: 9px;
+}
+.card-horizontal:first-child {
+    padding-left: 10px;
+}
+.card-horizontal-body-image {
+    margin: 0;
+    padding: 0;
+}
+.card-horizontal-body-info {
+    margin-top: -9px;
+    justify-content: flex-start;
+}
+.card-horizontal-body-time {
+    padding-left: 7px;
+}

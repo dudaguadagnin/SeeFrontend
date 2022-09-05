@@ -6,7 +6,7 @@ export const CardImage = (props) => {
 
   return (
     <div >
-      <img src={props.cartaz} className={props.size === 'medium' ? 'image-medium' : 'image-small'}>
+      <img src={props.cartaz} className={`image-${props.size}`}>
       </img>
     </div>
   );

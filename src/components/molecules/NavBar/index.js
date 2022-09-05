@@ -4,8 +4,8 @@ import Hamb from '../../../../assets/frame.png'
 import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import './index.css'
-
 import { useNavigation } from '@react-navigation/native';
+
 export const NavBar = (props) => {
     const [navbarOpen, setNavbarOpen] = React.useState(false)
 

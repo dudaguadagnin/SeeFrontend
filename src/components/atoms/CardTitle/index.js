@@ -5,7 +5,9 @@ export const CardTitle = (props) => {
 
   return (
     <div className='cardtitle'>
-      <span className='card-text'>{props.children}...</span>
+      <span className='card-text'>
+        {props.children}
+        </span>
     </div>
   );
 }
