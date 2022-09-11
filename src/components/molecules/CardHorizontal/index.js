@@ -4,6 +4,7 @@ import GenericText from '../../atoms/GenericText';
 import CardImage from '../../atoms/CardImage';
 import Star from '../../atoms/Star';
 import './index.css'
+import { useNavigation } from '@react-navigation/native';
 
 const CardHorizontal = (props) => {
   console.log('hirizontal', props)

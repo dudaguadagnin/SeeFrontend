@@ -1,0 +1,26 @@
+.list-temp {
+    color: white;
+    padding-bottom: 3px;
+}
+.showTemp {
+    
+}
+.ocultoTemp {
+    
+}
+.info-footer-cards-carrossel {
+    margin-bottom: 20px;
+}
+.list-temp-texto {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 20px;
+}
+.list-temp-arrow {
+    width: 15px;
+    height: 10px;
+    margin-right: 13px;
+}
+.list-temp-touch {
+    padding: 16px 0px 11px 33px;
+}

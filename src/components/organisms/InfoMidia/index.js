@@ -11,6 +11,7 @@ import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
 import { useNavigation } from '@react-navigation/native';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
+import ListTemps from '../../molecules/listTemps';
 
 import './index.css'
 
@@ -157,17 +158,7 @@ export const InfoMidia = (props) => {
                 </div>
             </div>
             {!props.temporadas ?
-                <div className='info-temporada-body'>
-                    <div className='info-temporada'>
-                        <div  className='info-temporada-touch'>
-                            <img src={Arrow} className='info-temporada-arrow' />
-                            <span className='info-temporada-texto' >Temporada 1</span>
-                        </div>
-                        <div className={`info-temporada-cards ${expandTemp ? 'showTemp' : 'ocultoTemp'}`}>
-                            <CardHorizontalSlider midia={series} />
-                        </div>
-                    </div>
-                </div>
+                <ListTemps midia={series}/>
                 :
                 ''
             }

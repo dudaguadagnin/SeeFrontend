@@ -3,38 +3,58 @@ import { Button } from "react-native"
 import Hamb from '../../../../assets/frame.png'
 import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
+import Seta from '../../../../assets/seta.png'
 import './index.css'
 import { useNavigation } from '@react-navigation/native';
 
 export const NavBar = (props) => {
-    const [navbarOpen, setNavbarOpen] = React.useState(false)
+    const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
+    const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
 
-    const handleToggle = () => {
-        setNavbarOpen(!navbarOpen)
+    const Toggle = () => {
+        setnewNavBarNormalOpen(!newNavBarNormalOpen)
     }
-
-    const closeMenu = () => {
-        setNavbarOpen(false)
+    const TogglePesquisa = () => {
+        setnewNavBarNormal(!newNavBarNormal)
     }
-
     const navigation = useNavigation();
     return (
         <div className='nav-bar'>
-            <div className='nav-bar-components'>
-                <div onClick={handleToggle} className="nav-button-toggle">
-                    {navbarOpen ?
-                        <img className='nav-hamb' src={Hamb} /> : <img className='nav-hamb' src={Hamb} />
-                    }
-                </div>
-                <div className='nav-logo'>
-                    <img className='nav-logo' src={logo} />
-                </div>
-                <div className='nav-search'>
-                    <img className='nav-search' src={Search} />
-                </div>
-
-            </div>
-            <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
+                {
+                    newNavBarNormal ?
+                    <div className='nav-bar-components'>
+                            <div className="nav-button-toggle">
+                                {newNavBarNormalOpen ?
+                                    <img onClick={Toggle} className='nav-hamb-arrow' src={Seta} />
+                                    :
+                                    <img onClick={Toggle} className='nav-hamb' src={Hamb} />
+                                }
+                            </div>
+                            <div className='nav-logo'>
+                                <img className='nav-logo' src={logo} />
+                            </div>
+                            <div className='nav-search' >
+                                <div className='nav-search-lupa' onClick={TogglePesquisa}>
+                                    <img className='nav-search-img' src={Search} />
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div className='nav-bar-components'>
+                            <div className="nav-button-toggle">
+                                <img onClick={TogglePesquisa} className='nav-hamb-arrow' src={Seta} />
+                            </div>
+                            <div className='nav-input-open'>
+                                <input type="text" className='nav-search-input' placeholder="Pesquise aqui..." />
+                            </div>
+                            <div className='nav-search' >
+                                <div className='nav-search-lupa-open'>
+                                    <img className='nav-search-img' src={Search} />
+                                </div>
+                            </div>
+                        </div>
+                }
+            <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
 
                 <li onClick={() => navigation.navigate('InfoMidia')} className="nav-ul-li">Inicial</li>
                 <li className="nav-ul-li" onClick={() => navigation.navigate('Filmes')}>Filmes</li>
