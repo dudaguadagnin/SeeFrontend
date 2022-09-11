@@ -24,17 +24,19 @@ const StyledRating = styled(Rating)({
 });
 
 export const ListTemps = (props) => {
+    console.log(props)
     const [expandTemp, setexpandTemp] = React.useState(false)
     const toggleActiveClass = (ref) => {
         setexpandTemp(!expandTemp)
+        console.log(expandTemp)
     }
 
     return (
         <div className='list-temp-body'>
             <div className='list-temp'>
-                <div className='list-temp-touch'>
-                    <img src={Arrow} className='list-temp-arrow' />
-                    <span className='list-temp-texto' >Temporada 1</span>
+                <div className='list-temp-touch' onClick={() => toggleActiveClass()}>
+                    <img src={Arrow} className={`list-temp-arrow ${expandTemp ? 'invert-arrow' : 'normal-arrow'}`}/>
+                    <span className='list-temp-texto' >Temporada {props.index + 1}</span>
                 </div>
                 <div className={`list-temp-cards ${expandTemp ? 'showTemp' : 'ocultoTemp'}`}>
                     <CardHorizontalSlider midia={props.midia} />

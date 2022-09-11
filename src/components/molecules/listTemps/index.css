@@ -2,11 +2,15 @@
     color: white;
     padding-bottom: 3px;
 }
-.showTemp {
-    
+.normal-arrow {
+    transition: 0.6s;
+}
+.invert-arrow {
+    transition: 0.6s;
+    transform: rotateX(180deg);
 }
 .ocultoTemp {
-    
+    display: none;
 }
 .info-footer-cards-carrossel {
     margin-bottom: 20px;

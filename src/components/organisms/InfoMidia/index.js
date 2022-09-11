@@ -25,7 +25,7 @@ const StyledRating = styled(Rating)({
 });
 
 export const InfoMidia = (props) => {
-    console.log(props)
+    console.log(props.route.params.series)
     const filmes = [
         {
             title: 'Filme titulo',
@@ -157,9 +157,12 @@ export const InfoMidia = (props) => {
                     <GenericText color="gray">{sinopseDescription}</GenericText>
                 </div>
             </div>
-            {!props.temporadas ?
-                <ListTemps midia={series}/>
-                :
+            { props.route.params.series ? props.route.params.series.temporadas.map((serie, idxex) => {
+                return (<div>
+                    <ListTemps midia={serie} index={idxex}/>
+                </div>)
+            })
+            :
                 ''
             }
             <div className='info-footer'>
