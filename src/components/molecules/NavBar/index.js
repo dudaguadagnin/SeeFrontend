@@ -5,19 +5,26 @@ import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import Seta from '../../../../assets/seta.png'
 import './index.css'
-import { useNavigation } from '@react-navigation/native';
+//import { useNavigation } from '@react-navigation/native';
+import {
+    BrowserRouter,
+    Routes,
+    Route, 
+    Link,
+    useNavigate
+  } from "react-router-dom";
 
 export const NavBar = (props) => {
     const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
     const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
-
+    const navigate = useNavigate();
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
     }
     const TogglePesquisa = () => {
         setnewNavBarNormal(!newNavBarNormal)
     }
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
     const series =
     {
         title: 'serie titulo',
@@ -60,6 +67,10 @@ export const NavBar = (props) => {
             ],
         ]
     }
+    const redirect = (href) => {
+        //history.replace({pathname: 'InfoMidia'})
+        navigate('/InfoMidia', {replace: true, props: series});
+    }
 
     return (
         <div className='nav-bar'>
@@ -99,9 +110,10 @@ export const NavBar = (props) => {
             }
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
 
-                <li onClick={() => navigation.navigate('InfoMidia', { series })} className="nav-ul-li">Inicial</li>
-                <li className="nav-ul-li" onClick={() => navigation.navigate('Filmes')}>Filmes</li>
-                <li className="nav-ul-li" onClick={() => navigation.navigate('Séries')}>Séries</li>
+                <li  className="nav-ul-li">
+                <Link to="/InfoMidia" state={{serie:series}}>Inicial</Link></li>
+                <li className="nav-ul-li" onClick={()=> redirect()}>Filmes</li>
+                <li className="nav-ul-li" >Séries</li>
                 <ol className="nav-ol"> Gêneros
                     <li className="nav-ol-li">Ação
                     </li>

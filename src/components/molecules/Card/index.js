@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export const Card = (props) => {
 
-  console.log('card', props)
+  //console.log('card', props)
   const filmes = [
     {
       title: 'Filme titulo',

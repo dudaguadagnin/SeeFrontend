@@ -26,5 +26,8 @@
     margin-right: 13px;
 }
 .list-temp-touch {
-    padding: 16px 0px 11px 33px;
+    padding: 16px 0px 0px 33px;
+}
+.list-temp-cards {
+    margin-top: 11px;
 }

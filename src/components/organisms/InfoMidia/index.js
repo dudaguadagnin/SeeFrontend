@@ -9,9 +9,17 @@ import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
-import { useNavigation } from '@react-navigation/native';
+//import { useNavigation } from '@react-navigation/native';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import ListTemps from '../../molecules/listTemps';
+import {
+    BrowserRouter,
+    Routes,
+    Route, 
+    Link,
+    useNavigate,
+    useLocation
+  } from "react-router-dom";
 
 import './index.css'
 
@@ -25,7 +33,7 @@ const StyledRating = styled(Rating)({
 });
 
 export const InfoMidia = (props) => {
-    console.log(props.route.params.series)
+    //console.log(props)
     const filmes = [
         {
             title: 'Filme titulo',
@@ -93,7 +101,9 @@ export const InfoMidia = (props) => {
 
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
     const [expandTemp, setexpandTemp] = React.useState(false)
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
+    const location = useLocation()
+    console.log(location)
     return (
         <div className='InfoMidia'>
             <NavBar
@@ -117,12 +127,12 @@ export const InfoMidia = (props) => {
                             <GenreIcon />
                         </div>
                     </div>
-                    {props.temporadas ?
+                    {location.state.serie.temporadas ?
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
                                 <GenericText size="small">Temporadas:</GenericText>
                             </div>
-                            <GenericText size="small" color="gray">4</GenericText>
+                            <GenericText size="small" color="gray">{location.state.serie.temporadas.length}</GenericText>
                         </div>
                         :
                         <div className='info-header-text inf-flex'>
@@ -157,7 +167,8 @@ export const InfoMidia = (props) => {
                     <GenericText color="gray">{sinopseDescription}</GenericText>
                 </div>
             </div>
-            { props.route.params.series ? props.route.params.series.temporadas.map((serie, idxex) => {
+            { location.state.serie ? location.state.serie.temporadas.map((serie, idxex) => {
+                console.log(serie)
                 return (<div>
                     <ListTemps midia={serie} index={idxex}/>
                 </div>)

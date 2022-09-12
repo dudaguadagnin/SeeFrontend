@@ -5,7 +5,7 @@ import Carousel from 'react-native-snap-carousel'
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
 
 export const CardSlider = (props) => {
-    console.log(props)
+    //console.log(props)
 
     const SLIDER_WIDTH = Dimensions.get('window').width + 1
     const ITEM_WIDTH = Math.round(SLIDER_WIDTH)

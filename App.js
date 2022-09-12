@@ -5,7 +5,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Card from './src/components/molecules/Card';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import VideoPlayer from './src/components/organisms/VideoPlayer';
-
+//import { NativeRouter, Route, Link } from "react-router-native";
+//import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 
 const navigationRef = createNavigationContainerRef()
@@ -24,6 +30,16 @@ export default function App() {
 
 
   return (
+    
+    <BrowserRouter>
+    <Routes>
+      <Route exact path="/Home" element={<Home />} />
+      <Route path="/Player" element={<VideoPlayer />} />
+      <Route path="/InfoMidia" element={<InfoMidia />} />
+    </Routes>
+   </BrowserRouter>
+  )
+{/**
     <NavigationContainer ref={navigationRef}>
 
       <Stack.Navigator>
@@ -44,8 +60,8 @@ export default function App() {
           component={''}
           options={{ headerShown: false }} />
       </Stack.Navigator>
-    </NavigationContainer>
-  )
+    </NavigationContainer>*/}
+  
 
   {/*
   return (
@@ -57,4 +73,5 @@ export default function App() {
      
     </NavigationContainer>
   );*/}
+
 }

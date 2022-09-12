@@ -5,7 +5,7 @@ import NavBar from '../../molecules/NavBar'
 import './index.css'
 
 export const Home = (props) => {
-  console.log(props)
+  //console.log(props)
   const filmes = [
     {
       title: 'Filme 1 hjjh hgjhg hjgu',

@@ -5,7 +5,7 @@ import NavBar from '../../molecules/NavBar'
 import './index.css'
 
 export const Busca = (props) => {
-  console.log(props)
+  //console.log(props)
   return (
     <div className='busca'>
       <NavBar

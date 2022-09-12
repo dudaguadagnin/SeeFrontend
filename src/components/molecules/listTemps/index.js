@@ -9,7 +9,7 @@ import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
-import { useNavigation } from '@react-navigation/native';
+//import { useNavigation } from '@react-navigation/native';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 
 import './index.css'
@@ -24,11 +24,10 @@ const StyledRating = styled(Rating)({
 });
 
 export const ListTemps = (props) => {
-    console.log(props)
+    console.log(props.midia)
     const [expandTemp, setexpandTemp] = React.useState(false)
-    const toggleActiveClass = (ref) => {
+    const toggleActiveClass = () => {
         setexpandTemp(!expandTemp)
-        console.log(expandTemp)
     }
 
     return (
@@ -39,7 +38,7 @@ export const ListTemps = (props) => {
                     <span className='list-temp-texto' >Temporada {props.index + 1}</span>
                 </div>
                 <div className={`list-temp-cards ${expandTemp ? 'showTemp' : 'ocultoTemp'}`}>
-                    <CardHorizontalSlider midia={props.midia} />
+                    <CardHorizontalSlider midia={props.midia}/>
                 </div>
             </div>
         </div>
