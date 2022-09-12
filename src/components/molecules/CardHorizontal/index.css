@@ -3,6 +3,12 @@
     width: 147px;
     border-radius: 9px;
 }
+.link-card-horizontal{ 
+    text-decoration: none;
+    display: contents;
+    text-transform: none;
+    padding: 0;
+}
 .card-horizontal:first-child {
     padding-left: 10px;
 }

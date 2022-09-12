@@ -10,14 +10,13 @@ import {
     BrowserRouter,
     Routes,
     Route, 
-    Link,
-    useNavigate
+    Link
   } from "react-router-dom";
 
 export const NavBar = (props) => {
     const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
     const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
     }
@@ -69,7 +68,7 @@ export const NavBar = (props) => {
     }
     const redirect = (href) => {
         //history.replace({pathname: 'InfoMidia'})
-        navigate('/InfoMidia', {replace: true, props: series});
+        //navigate('/InfoMidia', {replace: true, props: series});
     }
 
     return (

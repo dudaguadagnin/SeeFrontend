@@ -4,7 +4,7 @@ import './index.css'
 
 export const GenericText = (props) => {
     // color = gray || black || white
-    // size = small || medium || large
+    // size = small || medium || large || subtitlebold
 
   return (
     <div className='generic-text'>

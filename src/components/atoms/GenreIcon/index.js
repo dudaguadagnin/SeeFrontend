@@ -4,7 +4,7 @@ import './index.css';
 export const GenreIcon = (props) => {
 
   return (
-    <div className='genreIcon'>Ação</div>
+    <div className='genreIcon'>{props.children}</div>
   );
 }
 

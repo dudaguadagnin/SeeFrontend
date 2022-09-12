@@ -13,11 +13,6 @@ import { styled } from '@mui/material/styles';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import ListTemps from '../../molecules/listTemps';
 import {
-    BrowserRouter,
-    Routes,
-    Route, 
-    Link,
-    useNavigate,
     useLocation
   } from "react-router-dom";
 
@@ -33,7 +28,6 @@ const StyledRating = styled(Rating)({
 });
 
 export const InfoMidia = (props) => {
-    //console.log(props)
     const filmes = [
         {
             title: 'Filme titulo',
@@ -81,33 +75,13 @@ export const InfoMidia = (props) => {
             cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
     ]
-    const series = [
-        {
-            title: 'serie titulo',
-            duration: '2h, 30min',
-            cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74'
-        },
-        {
-            title: 'serie titulo',
-            duration: '2h, 30min',
-            cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQtwsxsHgdgWIND4fSpPITza0IkQHiqZDXdeVicRWtG9JhFAws01znsKfW8XeqW_2WWBmJpqpnmdN9b7uOy3ePJ2P0Rb30PJsTNGWkXTV0aFZDawHX8kIN3Z.jpg?r=cc9'
-        },
-        {
-            title: 'serie titulo',
-            duration: '2h, 30min',
-            cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABfvDB1xGZuh-SkB7WccIvvvpGTvyOaoYqtePmpAV3pfCbB01RJbg2srq_yIL9UXu-tvyPH9oHIPbiXRfUsL8P7d7LLHxwZeSGpen3Bwyw7gCzFO0XYaBPOku.jpg?r=8da'
-        }
-    ]
-
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
-    const [expandTemp, setexpandTemp] = React.useState(false)
     //const navigation = useNavigation();
     const location = useLocation()
     console.log(location)
     return (
         <div className='InfoMidia'>
             <NavBar
-                to={'Player'}
                 activeClassName="active-link"
                 onClick={() => closeMenu()}
                 exact
@@ -115,38 +89,38 @@ export const InfoMidia = (props) => {
             <div className='info-header'>
                 <div><CardImage size="small" cartaz="https://upload.wikimedia.org/wikipedia/pt/f/f1/Minions_2-_The_Rise_of_Gru_poster.jpeg" /></div>
                 <div className="info-header-inicial-info">
-                    <GenericText size="large">Agente Oculto</GenericText>
+                    <GenericText size="large">{location.state.props.title}</GenericText>
                     <div className='info-avalitate inf-flex'>
                         <div className='info-header-avaliate inf-flex'>
                             <div className='info-header-avaliate'>
                                 <Star size="pequena" />
                             </div>
-                            <GenericText size="small" className="info-avaliate-padd">4.5</GenericText>
+                            <GenericText size="small" className="info-avaliate-padd">{location.state.props.evaluation}</GenericText>
                         </div>
                         <div className='info-header-genre'>
-                            <GenreIcon />
+                            <GenreIcon >{location.state.props.genre}</GenreIcon>
                         </div>
                     </div>
-                    {location.state.serie.temporadas ?
+                    {location.state.props.temporadas ?
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
                                 <GenericText size="small">Temporadas:</GenericText>
                             </div>
-                            <GenericText size="small" color="gray">{location.state.serie.temporadas.length}</GenericText>
+                            <GenericText size="small" color="gray">{location.state.props.temporadas.length}</GenericText>
                         </div>
                         :
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
                                 <GenericText size="small">Duração:</GenericText>
                             </div>
-                            <GenericText size="small" color="gray">2h, 30min</GenericText>
+                            <GenericText size="small" color="gray">{location.state.props.duration}</GenericText>
                         </div>
                     }
                     <div className='info-header-text inf-flex'>
                         <div className='info-header-text-padd'>
                             <GenericText size="small">Ano:</GenericText>
                         </div>
-                        <GenericText size="small" color="gray">2021</GenericText>
+                        <GenericText size="small" color="gray">{location.state.props.year}</GenericText>
                     </div>
                     <div className='info-header-text inf-flex'>
                         <div className='info-header-text-padd'>
@@ -164,10 +138,10 @@ export const InfoMidia = (props) => {
             <div className='info-sinopse'>
                 <GenericText>Sinopse:</GenericText>
                 <div className='info-sinopse-description'>
-                    <GenericText color="gray">{sinopseDescription}</GenericText>
+                    <GenericText color="gray">{location.state.props.description}</GenericText>
                 </div>
             </div>
-            { location.state.serie ? location.state.serie.temporadas.map((serie, idxex) => {
+            { location.state.props.temporadas ? location.state.props.temporadas.map((serie, idxex) => {
                 console.log(serie)
                 return (<div>
                     <ListTemps midia={serie} index={idxex}/>
@@ -177,7 +151,9 @@ export const InfoMidia = (props) => {
                 ''
             }
             <div className='info-footer'>
-                <GenericText>Também pode gostar de:</GenericText>
+                <div className='info-footer-text'>
+                    <GenericText>Também pode gostar de:</GenericText>
+                </div>
                 <div className='info-footer-cards'>
                     <div className='info-footer-cards-carrossel'><CardSlider midia={filmes} /></div>
                     <CardSlider midia={filmes} />

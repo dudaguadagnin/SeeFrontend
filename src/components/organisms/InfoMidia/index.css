@@ -9,7 +9,7 @@
     display: flex;
 }
 .info-header-inicial-info {
-    padding: 2px 19px;
+    padding: 2px 0px 2px 19px;
 }
 .info-header-avaliate {
     padding: 0px 4px 0px 0px;
@@ -117,7 +117,10 @@
     margin: 0 27px;
 }
 .info-footer {
-    margin: 30px 0 0 27px;
+    margin: 30px 0 0 0px;
+}
+.info-footer-text {
+    margin-left: 27px;
 }
 .info-footer-cards {
     margin: 13px 0;

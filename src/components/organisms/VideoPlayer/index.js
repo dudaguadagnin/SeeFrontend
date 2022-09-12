@@ -1,5 +1,8 @@
 import React from 'react';
 import Videoks from '../../molecules/Videoks';
+import {
+  useLocation
+} from "react-router-dom";
 
 export const VideoPlayer = (props) => {
 
@@ -31,7 +34,8 @@ export const VideoPlayer = (props) => {
       });
     };
     
-
+    const location = useLocation()
+    console.log(location)
 
   return (
     <div className='video-player'>

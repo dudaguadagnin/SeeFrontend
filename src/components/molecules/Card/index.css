@@ -3,6 +3,18 @@
     height: 168px;
     border-radius: 9px;
 }
+.card:first-child {
+    padding-left: 20px;
+}
+.card:last-child {
+    padding-right: 20px;
+}
+.link-card{ 
+    text-decoration: none;
+    display: contents;
+    text-transform: none;
+    padding: 0;
+}
 .card-body-image {
     margin: 0;
     padding: 0;
