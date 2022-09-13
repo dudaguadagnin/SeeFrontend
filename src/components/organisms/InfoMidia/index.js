@@ -87,7 +87,7 @@ export const InfoMidia = (props) => {
                 exact
             ></NavBar>
             <div className='info-header'>
-                <div><CardImage size="small" cartaz="https://upload.wikimedia.org/wikipedia/pt/f/f1/Minions_2-_The_Rise_of_Gru_poster.jpeg" /></div>
+                <div><CardImage size="small" cartaz={location.state.props.cartaz}/></div>
                 <div className="info-header-inicial-info">
                     <GenericText size="large">{location.state.props.title}</GenericText>
                     <div className='info-avalitate inf-flex'>

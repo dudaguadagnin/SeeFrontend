@@ -12,6 +12,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Genero from './src/components/organisms/Genero';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 
 const navigationRef = createNavigationContainerRef()
@@ -26,7 +27,41 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
-
+  const generos = [
+    {
+      "name": "Ação"
+    },
+    {
+      "name": "Aventura"
+    },
+    {
+      "name": "Comédia"
+    },
+    {
+      "name": "Drama"
+    },
+    {
+      "name": "Espionagem"
+    },
+    {
+      "name": "Fantasia"
+    },
+    {
+      "name": "Ficção Científica"
+    },
+    {
+      "name": "Guerra"
+    },
+    {
+      "name": "Romance"
+    },
+    {
+      "name": "Suspense"
+    },
+    {
+      "name": "Terror"
+    }
+  ]
 
 
   return (
@@ -36,6 +71,19 @@ export default function App() {
       <Route exact path="/Home" element={<Home />} />
       <Route path="/Player" element={<VideoPlayer />} />
       <Route path="/InfoMidia" element={<InfoMidia />} />
+      <Route path="/acao"  element={<Genero />} />
+      <Route path="/aventura"  element={<Genero />} />
+      <Route path="/comedia"  element={<Genero />} />
+      <Route path="/drama"  element={<Genero />} />
+      <Route path="/espionagem"  element={<Genero />} />
+      <Route path="/fantasia"  element={<Genero />} />
+      <Route path="/ficcao"  element={<Genero />} />
+      <Route path="/guerra"  element={<Genero />} />
+      <Route path="/romance"  element={<Genero />} />
+      <Route path="/suspense"  element={<Genero />} />
+      <Route path="/terror"  element={<Genero />} />
+      <Route path="/Filmes"  element={<Genero />} />
+      <Route path="/Series"  element={<Genero />} />
     </Routes>
    </BrowserRouter>
   )

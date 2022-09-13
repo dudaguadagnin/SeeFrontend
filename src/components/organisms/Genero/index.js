@@ -2,10 +2,14 @@ import React from 'react';
 import CardSlider from '../../molecules/CardSlider'
 import NavBar from '../../molecules/NavBar'
 import GenericText from '../../atoms/GenericText';
+import {
+  useLocation
+} from "react-router-dom";
 import './index.css'
 
-export const Home = (props) => {
-  //console.log(props)
+export const Genero = (props) => {
+  const location = useLocation()
+  console.log(location)
   const filmes = [
     {
       title: 'Aquaman',
@@ -19,7 +23,7 @@ export const Home = (props) => {
     {
       title: 'Corpo Fechado',
       description: 'Um espantoso desastre de trem deixa os Estados Unidos em choque. Todos os passageiros das locomotivas acabam mortos, exceto David Dunne, que sai completamente ileso do acidente, deixando todos, inclusive os médicos e ele próprio, em choque. Enquanto busca explicações sobre o que poderia ter salvado sua vida, David encontra Elijah Price, um desconhecido que apresenta uma explicação no mínimo bizarra para o fato.',
-      genre: 'Suspense',
+      genre: 'Mistério',
       evaluation: '4.5',
       duration: '1h, 47min',
       year: 2001,
@@ -335,49 +339,35 @@ export const Home = (props) => {
   ]
 
   return (
-    <div className='home'>
+    <div className='genero'>
       <NavBar
         activeClassName="active-link"
         onClick={() => closeMenu()}
         exact
       >
       </NavBar>
-      <div className='home-destaques'>
-        <div className='home-space-text'>
-          <GenericText size="subtitlebold">Destaques</GenericText>
+      <div className='genero-destaques'>
+        <div className='genero-space-text'>
+          <GenericText size="subtitlebold">{location.state.type}</GenericText>
         </div>
-        <div className='home-space-carrossel'>
-          <CardSlider midia={filmes} />
+        {location.state.genre.length > 0 ? 
+        <div>
+        <div className='genero-space-carrossel'>
+          <CardSlider midia={location.state.genre} />
         </div>
-        <div className='home-space-carrossel'>
-          <CardSlider midia={filmes} />
+        <div className='genero-space-carrossel'>
+          <CardSlider midia={location.state.genre} />
         </div>
-        <div className='home-space-carrossel'>
-          <CardSlider midia={filmes} />
+        <div className='genero-space-carrossel'>
+          <CardSlider midia={location.state.genre} />
         </div>
-      </div>
-      <div>
-        <div className='home-space-text'>
-        <GenericText size="subtitlebold">Séries</GenericText>
         </div>
-        <div className='home-space-carrossel'>
-          <CardSlider midia={series} />
-        </div>
-        <div className='home-space-carrossel'>
-          <CardSlider midia={series} />
-        </div>
+          :
+          <div className='genre-sem-conteudo'>Não temos conteúdo desse gênero no momento </div>
+        }
       </div>
     </div>
   );
 }
 
-export default Home;
-/*
-<Button
-          title="Add some friends"
-          onPress={() =>
-            props.navigation.navigate('Player')
-          }
-        />
-
-*/
+export default Genero;
