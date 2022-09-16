@@ -2,10 +2,12 @@ import React from 'react';
 import CardSlider from '../../molecules/CardSlider'
 import NavBar from '../../molecules/NavBar'
 import GenericText from '../../atoms/GenericText';
+import Connection from '../../../services/backend.js'
 import './index.css'
 
 export const Home = (props) => {
   //console.log(props)
+/*
   const filmes = [
     {
       title: 'Aquaman',
@@ -333,13 +335,17 @@ export const Home = (props) => {
       "season_quantity": 5
     }
   ]
+*/
+  const [filmes, setFilmes] = React.useState([]);
+  const [series, setSeries] = React.useState([]);
 
-  const [response, setResponse] = useState([]);
+  React.useEffect(async ()  => {
+    const filmes = await Connection.get('/filmes')
+    const series = await Connection.get('/series')
+    setFilmes(filmes);
+    setSeries(series);
+  }, []);
 
-  const getback = async (section) => { // recebe a seção
-    const res = await axios.get(``);
-    setResponse(res.data.results);
-  };
 
   return (
     <div className='home'>

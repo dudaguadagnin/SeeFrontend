@@ -5,6 +5,7 @@ import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import Seta from '../../../../assets/seta.png'
 import './index.css'
+import Connection from '../../../services/backend.js';
 //import { useNavigation } from '@react-navigation/native';
 import {
     BrowserRouter,
@@ -16,6 +17,9 @@ import {
 export const NavBar = (props) => {
     const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
     const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
+    const [filmes, setFilmes] = React.useState([])
+    const [series, setSeries] = React.useState([])
+    const [generos, setGeneros] = React.useState([])
 
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
@@ -23,6 +27,16 @@ export const NavBar = (props) => {
     const TogglePesquisa = () => {
         setnewNavBarNormal(!newNavBarNormal)
     }
+    React.useEffect(async ()  => {
+        const filmes = await Connection.get('/filmes')
+        const series = await Connection.get('/series')
+        // const generos = await Connection.get('/generos')
+        setFilmes(filmes);
+        setSeries(series);
+        // setGeneros(generos);
+      }, []);
+
+/*
     const generos = [
         {
             "name": "Ação"
@@ -303,6 +317,7 @@ export const NavBar = (props) => {
             cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
     ]
+*/
     const acao = []
     const aventura = []
     const comedia = []
