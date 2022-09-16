@@ -350,20 +350,23 @@ export const Genero = (props) => {
         <div className='genero-space-text'>
           <GenericText size="subtitlebold">{location.state.type}</GenericText>
         </div>
-        {location.state.genre.length > 0 ? 
-        <div>
-        <div className='genero-space-carrossel'>
-          <CardSlider midia={location.state.genre} />
-        </div>
-        <div className='genero-space-carrossel'>
-          <CardSlider midia={location.state.genre} />
-        </div>
-        <div className='genero-space-carrossel'>
-          <CardSlider midia={location.state.genre} />
-        </div>
-        </div>
+        {location.state.genre.length > 0 ?
+          <div>
+            <div className='genero-space-carrossel'>
+              <CardSlider midia={location.state.genre} />
+            </div>
+            <div className='genero-space-carrossel'>
+              <CardSlider midia={location.state.genre} />
+            </div>
+            <div className='genero-space-carrossel'>
+              <CardSlider midia={location.state.genre} />
+            </div>
+          </div>
           :
-          <div className='genre-sem-conteudo'>Não temos conteúdo desse gênero no momento </div>
+          <div className='genre-sem-conteudo'>
+            <GenericText size="medium">
+              Não temos conteúdo desse gênero no momento
+            </GenericText> </div>
         }
       </div>
     </div>

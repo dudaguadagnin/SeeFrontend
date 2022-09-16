@@ -334,6 +334,13 @@ export const Home = (props) => {
     }
   ]
 
+  const [response, setResponse] = useState([]);
+
+  const getback = async (section) => { // recebe a seção
+    const res = await axios.get(``);
+    setResponse(res.data.results);
+  };
+
   return (
     <div className='home'>
       <NavBar

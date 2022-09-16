@@ -69,6 +69,8 @@ export default function App() {
     <BrowserRouter>
     <Routes>
       <Route exact path="/Home" element={<Home />} />
+      <Route path="/Filmes"  element={<Genero />} />
+      <Route path="/Series"  element={<Genero />} />
       <Route path="/Player" element={<VideoPlayer />} />
       <Route path="/InfoMidia" element={<InfoMidia />} />
       <Route path="/acao"  element={<Genero />} />
@@ -82,8 +84,7 @@ export default function App() {
       <Route path="/romance"  element={<Genero />} />
       <Route path="/suspense"  element={<Genero />} />
       <Route path="/terror"  element={<Genero />} />
-      <Route path="/Filmes"  element={<Genero />} />
-      <Route path="/Series"  element={<Genero />} />
+      
     </Routes>
    </BrowserRouter>
   )

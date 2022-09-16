@@ -393,40 +393,37 @@ export const NavBar = (props) => {
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes }}>Filmes</Link>
                 <Link className="nav-ul-li" to="/Series" state={{ genre: series }}>Séries</Link>
                 <ol className="nav-ol"> Gêneros
-                    <Link className="nav-ol-li" to="/acao" state={{ genre: acao, type: 'Ação' }}>
+                    <Link className="nav-ol-li" to="/Acao" state={{ genre: acao, type: 'Ação' }}>
                         Ação
                     </Link>
-                    <Link className="nav-ol-li" to="/aventura" state={{ genre: aventura,type: 'Aventura' }}>
+                    <Link className="nav-ol-li" to="/Aventura" state={{ genre: aventura,type: 'Aventura' }}>
                         Aventura
                     </Link>
-                    <Link className="nav-ol-li" to="/comedia" state={{ genre: comedia,type:'Comédia'  }}>
+                    <Link className="nav-ol-li" to="/Comedia" state={{ genre: comedia,type:'Comédia'  }}>
                         Comédia
                     </Link>
-                    <Link className="nav-ol-li" to="/drama" state={{ genre: drama,type: 'Drama' }}>
+                    <Link className="nav-ol-li" to="/Drama" state={{ genre: drama,type: 'Drama' }}>
                         Drama
                     </Link>
-                    <Link className="nav-ol-li" to="/espionagem" state={{ genre: espionagem,type:'Espionagem'  }}>
+                    <Link className="nav-ol-li" to="/Espionagem" state={{ genre: espionagem,type:'Espionagem'  }}>
                         Espionagem
                     </Link>
-                    <Link className="nav-ol-li" to="/fantasia" state={{ genre: fantasia,type:'Fantasia'  }}>
+                    <Link className="nav-ol-li" to="/Fantasia" state={{ genre: fantasia,type:'Fantasia'  }}>
                         Fantasia
                     </Link>
-                    <Link className="nav-ol-li" to="/ficcao" state={{ genre: ficcao,type:'Ficção científica'  }}>
+                    <Link className="nav-ol-li" to="/Ficcao" state={{ genre: ficcao,type:'Ficção científica'  }}>
                         Ficção científica
                     </Link>
-                    <Link className="nav-ol-li" to="/guerra" state={{ genre: guerra,type:'Guerra'  }}>
+                    <Link className="nav-ol-li" to="/Guerra" state={{ genre: guerra,type:'Guerra'  }}>
                         Guerra
                     </Link>
-                    <Link className="nav-ol-li" to="/romance" state={{ genre: romance,type:'Romance'  }}>
+                    <Link className="nav-ol-li" to="/Romance" state={{ genre: romance,type:'Romance'  }}>
                         Romance
                     </Link>
-                    <Link className="nav-ol-li" to="/suspense" state={{ genre: suspense,type:'Suspense'  }}>
+                    <Link className="nav-ol-li" to="/Suspense" state={{ genre: suspense,type:'Suspense'  }}>
                         Suspense</Link>
-                    <Link className="nav-ol-li" to="/terror" state={{ genre: terror,type:'Terror'  }}>
+                    <Link className="nav-ol-li" to="/Terror" state={{ genre: terror,type:'Terror'  }}>
                         Terror
-                    </Link>
-                    <Link className="nav-ol-li" to="/drama" state={{ genre: drama,type:'Drama'  }}>
-                        Drama
                     </Link>
                 </ol>
             </ul>
