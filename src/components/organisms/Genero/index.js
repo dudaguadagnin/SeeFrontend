@@ -1,5 +1,5 @@
 import React from 'react';
-import CardSlider from '../../molecules/CardSlider'
+import CardSlider from '../../molecules/Filmes/CardSliderFilmes'
 import NavBar from '../../molecules/NavBar'
 import GenericText from '../../atoms/GenericText';
 import {
@@ -9,7 +9,7 @@ import './index.css'
 
 export const Genero = (props) => {
   const location = useLocation()
-  console.log(location)
+  // console.log(location)
   const filmes = [
     {
       title: 'Aquaman',

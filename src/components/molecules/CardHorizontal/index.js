@@ -14,13 +14,13 @@ import {
 //import { useNavigation } from '@react-navigation/native';
 
 const CardHorizontal = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <div>
       <Link className='link-card' to="/Player" state={{ play: props.item }}>
         <div className='card-horizontal' >
           <div className='card-horizontal-body-image'>
-            <CardImage cartaz={props.item.cartaz} size="horizontal" />
+            <CardImage cartaz={props.item.image} size="horizontal" />
           </div>
           <div className='card-horizontal-body-title'>
             <CardTitle>{props.item.title}</CardTitle>

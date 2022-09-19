@@ -1,8 +1,8 @@
 import React from 'react';
-import CardTitle from '../../atoms/CardTitle';
-import GenericText from '../../atoms/GenericText';
-import CardImage from '../../atoms/CardImage';
-import Star from '../../atoms/Star';
+import CardTitle from '../../../atoms/CardTitle';
+import GenericText from '../../../atoms/GenericText';
+import CardImage from '../../../atoms/CardImage';
+import Star from '../../../atoms/Star';
 import './index.css'
 import {
   BrowserRouter,
@@ -16,10 +16,10 @@ export const Card = (props) => {
 
   return (
     <div> 
-      <Link className='link-card' to="/InfoMidia" state={{props: props.item}}>
+      <Link className='link-card' to="/InfoMidia" state={{props: props.item, filme:true}}>
     <div className='card' >
       <div className='card-body-image'>
-        <CardImage cartaz={props.item.cartaz} size="medium" />
+        <CardImage cartaz={props.item.image} size="medium" />
       </div>
       <div className='card-body-title'>
         <CardTitle>{props.item.title}</CardTitle>

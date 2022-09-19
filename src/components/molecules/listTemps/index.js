@@ -3,7 +3,7 @@ import CardImage from '../../atoms/CardImage';
 import GenericText from '../../atoms/GenericText'
 import Star from '../../atoms/Star'
 import GenreIcon from '../../atoms/GenreIcon'
-import CardSlider from '../../molecules/CardSlider'
+import CardSlider from '../Filmes/CardSliderFilmes'
 import NavBar from '../../molecules/NavBar'
 import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
@@ -24,7 +24,7 @@ const StyledRating = styled(Rating)({
 });
 
 export const ListTemps = (props) => {
-    console.log(props.midia)
+    // console.log(props.midia)
     const [expandTemp, setexpandTemp] = React.useState(false)
     const toggleActiveClass = () => {
         setexpandTemp(!expandTemp)

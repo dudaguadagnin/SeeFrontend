@@ -5,7 +5,9 @@ import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import Seta from '../../../../assets/seta.png'
 import './index.css'
-import Connection from '../../../services/backend.js';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux'
+
 //import { useNavigation } from '@react-navigation/native';
 import {
     BrowserRouter,
@@ -15,6 +17,8 @@ import {
 } from "react-router-dom";
 
 export const NavBar = (props) => {
+    const dispatch = useDispatch()
+ 
     const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
     const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
     const [filmes, setFilmes] = React.useState([])
@@ -27,13 +31,14 @@ export const NavBar = (props) => {
     const TogglePesquisa = () => {
         setnewNavBarNormal(!newNavBarNormal)
     }
-    React.useEffect(async ()  => {
-        const filmes = await Connection.get('/filmes')
-        const series = await Connection.get('/series')
-        // const generos = await Connection.get('/generos')
-        setFilmes(filmes);
-        setSeries(series);
-        // setGeneros(generos);
+    React.useEffect(() => {
+        const asyncFn = async () => { 
+          const res = await axios.get(`http://localhost:3000/filmes`);
+          const ser = await axios.get(`http://localhost:3000/series`);
+          setFilmes(res.data);
+          setSeries(ser.data);
+         }
+        asyncFn();
       }, []);
 
 /*
@@ -330,41 +335,45 @@ export const NavBar = (props) => {
     const suspense = []
     const terror = []
 
+    // console.log(filmes)
+
     filmes.map((film, inx) => {
-        if (film.genre === 'Ação') {
+        console
+        if (film.genre_id === 1) {
             acao.push(film)
         }
-        if (film.genre === 'Aventura') {
+        if (film.genre_id === 2) {
             aventura.push(film)
         }
-        if (film.genre === 'Comédia') {
+        if (film.genre_id === 3) {
             comedia.push(film)
         }
-        if (film.genre === 'Drama') {
+        if (film.genre_id === 4) {
             drama.push(film)
         }
-        if (film.genre === 'Espionagem') {
+        if (film.genre_id === 5) {
             espionagem.push(film)
         }
-        if (film.genre === 'Fantasia') {
+        if (film.genre_id === 6) {
             fantasia.push(film)
         }
-        if (film.genre === 'Ficção Científica') {
+        if (film.genre_id === 7) {
             ficcao.push(film)
         }
-        if (film.genre === 'Guerra') {
+        if (film.genre_id === 8) {
             guerra.push(film)
         }
-        if (film.genre === 'Romance') {
+        if (film.genre_id === 9) {
             romance.push(film)
         }
-        if (film.genre === 'Suspense') {
+        if (film.genre_id === 10) {
             suspense.push(film)
         }
-        if (film.genre === 'Terror') {
+        if (film.genre_id === 11) {
             terror.push(film)
         }
     })
+    // console.log(ficcao)
 
     return (
         <div className='nav-bar'>

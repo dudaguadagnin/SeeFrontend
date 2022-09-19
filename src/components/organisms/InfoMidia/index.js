@@ -3,7 +3,7 @@ import CardImage from '../../atoms/CardImage';
 import GenericText from '../../atoms/GenericText'
 import Star from '../../atoms/Star'
 import GenreIcon from '../../atoms/GenreIcon'
-import CardSlider from '../../molecules/CardSlider'
+import CardSlider from '../../molecules/Filmes/CardSliderFilmes'
 import NavBar from '../../molecules/NavBar'
 import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
@@ -14,9 +14,10 @@ import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import ListTemps from '../../molecules/listTemps';
 import {
     useLocation
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import './index.css'
+import { useSelector, useDispatch } from 'react-redux'
 
 const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
@@ -36,7 +37,7 @@ export const InfoMidia = (props) => {
             evaluation: '4.5',
             duration: '2h, 30min',
             year: 2020,
-            cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
+            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
         {
             title: 'Filme titulo',
@@ -45,7 +46,7 @@ export const InfoMidia = (props) => {
             evaluation: '4.5',
             duration: '2h, 30min',
             year: 2020,
-            cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
+            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
         {
             title: 'Filme titulo',
@@ -54,7 +55,7 @@ export const InfoMidia = (props) => {
             evaluation: '4.5',
             duration: '2h, 30min',
             year: 2020,
-            cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
+            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
         {
             title: 'Filme titulo',
@@ -63,7 +64,7 @@ export const InfoMidia = (props) => {
             evaluation: '4.5',
             duration: '2h, 30min',
             year: 2020,
-            cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
+            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
         {
             title: 'Filme titulo',
@@ -72,13 +73,18 @@ export const InfoMidia = (props) => {
             evaluation: '4.5',
             duration: '2h, 30min',
             year: 2020,
-            cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
+            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
     ]
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
     //const navigation = useNavigation();
     const location = useLocation()
+    const midia = useSelector((state) => state.midia)
+    console.log(midia.episodios)
     console.log(location)
+    let novoArray = []
+
+    // console.log(location)
     return (
         <div className='InfoMidia'>
             <NavBar
@@ -87,7 +93,7 @@ export const InfoMidia = (props) => {
                 exact
             ></NavBar>
             <div className='info-header'>
-                <div><CardImage size="small" cartaz={location.state.props.cartaz}/></div>
+                <div><CardImage size="small" cartaz={location.state.props.image} /></div>
                 <div className="info-header-inicial-info">
                     <GenericText size="large">{location.state.props.title}</GenericText>
                     <div className='info-avalitate inf-flex'>
@@ -101,19 +107,19 @@ export const InfoMidia = (props) => {
                             <GenreIcon >{location.state.props.genre}</GenreIcon>
                         </div>
                     </div>
-                    {location.state.props.temporadas ?
+                    {location.state.serie ?
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
                                 <GenericText size="small">Temporadas:</GenericText>
                             </div>
-                            <GenericText size="small" color="gray">{location.state.props.temporadas.length}</GenericText>
+                            {/* <GenericText size="small" color="gray">{location.state.props.temporadas.length}</GenericText> */}
                         </div>
                         :
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
                                 <GenericText size="small">Duração:</GenericText>
                             </div>
-                            <GenericText size="small" color="gray">{location.state.props.duration}</GenericText>
+                            {/* <GenericText size="small" color="gray">{location.state.props.duration}</GenericText> */}
                         </div>
                     }
                     <div className='info-header-text inf-flex'>

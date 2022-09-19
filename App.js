@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './src/components/organisms/Home';
 import InfoMidia from './src/components/organisms/InfoMidia';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Card from './src/components/molecules/Card';
+import Card from './src/components/molecules/Filmes/Card';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import VideoPlayer from './src/components/organisms/VideoPlayer';
 //import { NativeRouter, Route, Link } from "react-router-native";
@@ -13,59 +13,12 @@ import {
   Route
 } from "react-router-dom";
 import Genero from './src/components/organisms/Genero';
-import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
-
-const navigationRef = createNavigationContainerRef()
-
-function navigate(name, params) {
-  if (navigationRef.isReady()) {
-    navigationRef.navigate(name, params);
-  }
-}
+import { Provider } from 'react-redux';
+import store from './src/store/index.js';
 
 export default function App() {
-
-  const Stack = createNativeStackNavigator();
-  const Tab = createBottomTabNavigator();
-  const generos = [
-    {
-      "name": "Ação"
-    },
-    {
-      "name": "Aventura"
-    },
-    {
-      "name": "Comédia"
-    },
-    {
-      "name": "Drama"
-    },
-    {
-      "name": "Espionagem"
-    },
-    {
-      "name": "Fantasia"
-    },
-    {
-      "name": "Ficção Científica"
-    },
-    {
-      "name": "Guerra"
-    },
-    {
-      "name": "Romance"
-    },
-    {
-      "name": "Suspense"
-    },
-    {
-      "name": "Terror"
-    }
-  ]
-
-
   return (
-    
+    <Provider store={store}>
     <BrowserRouter>
     <Routes>
       <Route exact path="/Home" element={<Home />} />
@@ -87,40 +40,8 @@ export default function App() {
       
     </Routes>
    </BrowserRouter>
+   </Provider>
   )
-{/**
-    <NavigationContainer ref={navigationRef}>
 
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }} />
-        <Stack.Screen
-          name="Player"
-          component={VideoPlayer}
-          options={{ headerShown: false }} />
-        <Stack.Screen
-          name="InfoMidia"
-          component={InfoMidia}
-          options={{ headerShown: false }} />
-        <Stack.Screen
-          name="Midia"
-          component={''}
-          options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>*/}
-  
-
-  {/*
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Settings" component={VideoPlayer} />
-      </Tab.Navigator>
-     
-    </NavigationContainer>
-  );*/}
 
 }
