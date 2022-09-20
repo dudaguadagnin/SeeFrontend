@@ -4,6 +4,7 @@
 .info-header {
     display: flex;
     padding: 15px 27px;
+    align-items: center;
 }
 .inf-flex {
     display: flex;

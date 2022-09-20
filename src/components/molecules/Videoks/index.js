@@ -44,13 +44,13 @@ export const Videoks = (props) => {
   }, [playerRef]);
 
   return (
-    <div data-vjs-player>
+    
+    <div data-vjs-player style={{justifyContent: 'center'}}>
       <video ref={videoRef} className='video-js vjs-big-play-centered'>
         <track src={Legenda}kind="captions" srcLang="en" label="English"/>
-
-        
         </video>
     </div>
+
   );
 }
 

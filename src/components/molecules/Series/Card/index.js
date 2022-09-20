@@ -25,12 +25,7 @@ export const Card = (props) => {
         <CardTitle>{props.item.title}</CardTitle>
       </div>
       <div className='card-body-info'>
-        <div className='card-info-avaliate'>
-          <Star size="pequena" />
-          <GenericText size="small" color="gray">{props.item.evaluation}</GenericText>
-        </div>
-        <div className='card-body-time'>
-        </div>
+        <GenericText size="small" color="gray">{props.item.season_quantity} Temporadas</GenericText>
         <GenericText size="small" color="gray">{props.item.duration? props.item.duration : props.item.episodeDuration}</GenericText>
       </div>
     </div>
