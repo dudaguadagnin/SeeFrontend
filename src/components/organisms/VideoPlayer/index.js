@@ -1,8 +1,11 @@
 import React from 'react';
 import Videoks from '../../molecules/Videoks';
 import { View } from 'react-native-web';
+import GenericText from '../../atoms/GenericText';
+import Seta from '../../../../assets/seta.png'
 import {
-  useLocation
+  useLocation,
+  Link
 } from "react-router-dom";
 
 export const VideoPlayer = (props) => {
@@ -40,6 +43,13 @@ export const VideoPlayer = (props) => {
 
   return (
     <View style={{ justifyContent: 'center'}} >
+      <div style={{zIndex:9, position: 'absolute' }}>
+      <Link className="nav-ul-li" to="/Home">
+        <img className='nav-hamb-arrow' src={Seta} />
+        </Link>
+        <GenericText size="medium" color="white">Texto</GenericText>
+      </div>
+      
       <div className='video-player'>
         <Videoks options={videoJsOptions} onReady={handlePlayerReady} />
       </div>

@@ -414,8 +414,8 @@ export const NavBar = (props) => {
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
 
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
-                <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes }}>Filmes</Link>
-                <Link className="nav-ul-li" to="/Series" state={{ genre: series }}>Séries</Link>
+                <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes,  type: 'Filmes' }}>Filmes</Link>
+                <Link className="nav-ul-li" to="/Series" state={{ genre: series,  type: 'Séries' }}>Séries</Link>
                 <ol className="nav-ol"> Gêneros
                     <Link className="nav-ol-li" to="/Acao" state={{ genre: acao, type: 'Ação' }}>
                         Ação

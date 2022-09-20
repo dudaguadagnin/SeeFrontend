@@ -18,6 +18,7 @@ import {
 
 import './index.css'
 import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios';
 
 const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
@@ -27,6 +28,10 @@ const StyledRating = styled(Rating)({
         color: 'white',
     },
 });
+
+const converteStringEmInteiro = (dados) => {
+    return Number(dados)
+}
 
 export const InfoMidia = (props) => {
     const filmes = [
@@ -76,7 +81,7 @@ export const InfoMidia = (props) => {
             image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
     ]
-    const temporadas = [
+   const tempsss = [
         [
             {
                 title: 'serie 1',
@@ -111,18 +116,35 @@ export const InfoMidia = (props) => {
                 cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
             }
         ],
-    ]
+    ] 
     const [generos, setGeneros] = React.useState('')
+    const [temporadas, setTemporadas] = React.useState([])
+    const [testes, setTeste] = React.useState([])
+
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
     console.log(midia.episodios)
     console.log(location)
-    let novoArray = []
+    let tamanhodetemporada = []
 
+    const asyncFn = async (id) => {
+            console.log('clicks')
+            await Promise.all([
+                axios.get(`http://localhost:3000/episodios/${id}`)
+            ])
+                .then((res) => {
+                    console.log(res[0].data)
+                    setTemporadas(res[0].data)
+                })
+        }
+    
 
+// npx react-native start
+// yarn android
     React.useEffect(() => {
+        
         if (location.state.props.genre_id === 1) {
             setGeneros('Ação')
         }
@@ -157,6 +179,11 @@ export const InfoMidia = (props) => {
             setGeneros('terror')
         }
     })
+    let teste = []
+    for(let i = 0; i < location.state.props.season_quantity; i++) {
+        teste.push(i)
+    }
+    console.log(temporadas)
 
     // console.log(location)
     return (
@@ -220,11 +247,11 @@ export const InfoMidia = (props) => {
             </div>
             {location.state.props.season_quantity ?
 
-                temporadas.map((serie, idxex) => {
-                    console.log(serie)
+                teste.map((serie, idxex) => {
+                    console.log(temporadas)
                     return (
-                        <div>
-                            <ListTemps midia={serie} index={idxex} />
+                        <div onClick={() => asyncFn(location.state.props.id)}>
+                            <ListTemps index={idxex} midia={temporadas}/>
                         </div>
                     )
                 })

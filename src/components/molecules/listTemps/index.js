@@ -29,16 +29,34 @@ export const ListTemps = (props) => {
     const toggleActiveClass = () => {
         setexpandTemp(!expandTemp)
     }
+    console.log(props)
+    let epipods = []
 
     return (
         <div className='list-temp-body'>
             <div className='list-temp'>
                 <div className='list-temp-touch' onClick={() => toggleActiveClass()}>
-                    <img src={Arrow} className={`list-temp-arrow ${expandTemp ? 'invert-arrow' : 'normal-arrow'}`}/>
+                    <img src={Arrow} className={`list-temp-arrow ${expandTemp ? 'invert-arrow' : 'normal-arrow'}`} />
                     <span className='list-temp-texto' >Temporada {props.index + 1}</span>
                 </div>
                 <div className={`list-temp-cards ${expandTemp ? 'showTemp' : 'ocultoTemp'}`}>
-                    <CardHorizontalSlider midia={props.midia}/>
+                    {
+                        props.midia.length
+                        !== 0 ?
+                        props.midia.map((mid, idx) => {
+                            
+                            mid.season === props.index + 1 
+                            ? epipods.push(mid)
+                            : console.log(epipods)
+                        
+                        })
+                            // props.midia[props.index].season === props.index + 1 ?
+                            //     console.log('if', props.midia[props.index])
+                            //     : console.log('else', props.midia[props.index])
+                            : ''
+
+                    }
+                    <CardHorizontalSlider midia={epipods} />
                 </div>
             </div>
         </div>
