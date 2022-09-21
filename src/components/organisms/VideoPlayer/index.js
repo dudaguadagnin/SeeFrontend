@@ -9,14 +9,16 @@ import {
 } from "react-router-dom";
 
 export const VideoPlayer = (props) => {
+  const [Height, setHeight] = React.useState(window.screen.height)
+  const [Width, setWidth] = React.useState(window.screen.width)
 
   const playerRef = React.useRef(null);
-
+  
   const videoJsOptions = {
     autoplay: true,
     controls: true,
-    responsive: true,
-    fluid: true,
+    // responsive: true,
+    // fluid: true,
     sources: [{
       src: '//vjs.zencdn.net/v/oceans.mp4',
       type: 'video/mp4'
@@ -39,15 +41,15 @@ export const VideoPlayer = (props) => {
   };
 
   const location = useLocation()
-  // console.log(location)
+  console.log(location)
 
   return (
-    <View style={{ justifyContent: 'center'}} >
-      <div style={{zIndex:9, position: 'absolute' }}>
-      <Link className="nav-ul-li" to="/Home">
-        <img className='nav-hamb-arrow' src={Seta} />
+    <View >
+      <div style={{zIndex:9, position: 'absolute',display: 'flex', justifyContent: 'flex-start', top: '12px'}}>
+      <Link style={{padding: '4px 8px 5px'}} to="/Home">
+        <img style={{width: '25px', height: '25px'}} src={Seta} />
         </Link>
-        <GenericText size="medium" color="white">Texto</GenericText>
+        <GenericText size="medium" color="white">{location.state}</GenericText>
       </div>
       
       <div className='video-player'>

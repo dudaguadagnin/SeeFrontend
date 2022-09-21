@@ -13,7 +13,8 @@ import { styled } from '@mui/material/styles';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import ListTemps from '../../molecules/listTemps';
 import {
-    useLocation
+    useLocation,
+    Link
 } from "react-router-dom";
 
 import './index.css'
@@ -81,7 +82,7 @@ export const InfoMidia = (props) => {
             image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
         },
     ]
-   const tempsss = [
+    const tempsss = [
         [
             {
                 title: 'serie 1',
@@ -116,7 +117,7 @@ export const InfoMidia = (props) => {
                 cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
             }
         ],
-    ] 
+    ]
     const [generos, setGeneros] = React.useState('')
     const [temporadas, setTemporadas] = React.useState([])
     const [testes, setTeste] = React.useState([])
@@ -130,21 +131,21 @@ export const InfoMidia = (props) => {
     let tamanhodetemporada = []
 
     const asyncFn = async (id) => {
-            console.log('clicks')
-            await Promise.all([
-                axios.get(`http://localhost:3000/episodios/${id}`)
-            ])
-                .then((res) => {
-                    console.log(res[0].data)
-                    setTemporadas(res[0].data)
-                })
-        }
-    
+        console.log('clicks')
+        await Promise.all([
+            axios.get(`http://localhost:3000/episodios/${id}`)
+        ])
+            .then((res) => {
+                console.log(res[0].data)
+                setTemporadas(res[0].data)
+            })
+    }
 
-// npx react-native start
-// yarn android
+
+    // npx react-native start
+    // yarn android
     React.useEffect(() => {
-        
+
         if (location.state.props.genre_id === 1) {
             setGeneros('Ação')
         }
@@ -180,7 +181,7 @@ export const InfoMidia = (props) => {
         }
     })
     let teste = []
-    for(let i = 0; i < location.state.props.season_quantity; i++) {
+    for (let i = 0; i < location.state.props.season_quantity; i++) {
         teste.push(i)
     }
     console.log(temporadas)
@@ -232,10 +233,13 @@ export const InfoMidia = (props) => {
                         </div>
                         <GenericText size="small" color="gray">+14</GenericText>
                     </div>
-                    <div className='info-header-button' onClick={() => navigation.navigate('Player')}>
-                        <img className='info-play-button' src={Play} />
-                        <span className='info-header-assistir'>Assistir agora</span>
-                    </div>
+                    <Link className="info-link-assistir" to="/Player" state={location.state.props.title}>
+                        <div className='info-header-button'>
+                            <img className='info-play-button' src={Play} />
+                            <span className='info-header-assistir'>Assistir agora</span>
+                        </div>
+                    </Link>
+
 
                 </div>
             </div>
@@ -251,7 +255,7 @@ export const InfoMidia = (props) => {
                     console.log(temporadas)
                     return (
                         <div onClick={() => asyncFn(location.state.props.id)}>
-                            <ListTemps index={idxex} midia={temporadas}/>
+                            <ListTemps index={idxex} midia={temporadas} />
                         </div>
                     )
                 })

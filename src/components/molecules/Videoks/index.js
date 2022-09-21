@@ -45,8 +45,8 @@ export const Videoks = (props) => {
 
   return (
     
-    <div data-vjs-player style={{justifyContent: 'center'}}>
-      <video ref={videoRef} className='video-js vjs-big-play-centered'>
+    <div data-vjs-player style={{justifyContent: 'center', width: '100%'}}>
+      <video height={window.screen.height} width={window.screen.width} ref={videoRef} className='video-js vjs-big-play-centered'>
         <track src={Legenda}kind="captions" srcLang="en" label="English"/>
         </video>
     </div>

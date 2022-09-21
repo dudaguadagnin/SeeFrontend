@@ -82,6 +82,10 @@
 .info-avaliate {
     margin: 26px 27px 0px;
 }
+.info-link-assistir {
+    padding: 0;
+    text-transform: none;
+}
 .info-avaliate-stars {
     display: flex;
     align-items: center;
