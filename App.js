@@ -17,6 +17,7 @@ import {
 import Genero from './src/components/organisms/Genero';
 import { Provider } from 'react-redux';
 import store from './src/store/index.js';
+import Error from './src/components/organisms/Erro';
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/Series" element={<Genero />} />
           <Route path="/Player" element={<VideoPlayer />}/>
           <Route path="/InfoMidia" element={<InfoMidia />} />
+          <Route path="/Error" element={<Error />} />
           <Route path="/acao" element={<Genero />} />
           <Route path="/aventura" element={<Genero />} />
           <Route path="/comedia" element={<Genero />} />

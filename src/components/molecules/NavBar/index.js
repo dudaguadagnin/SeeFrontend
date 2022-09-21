@@ -335,7 +335,6 @@ export const NavBar = (props) => {
     const suspense = []
     const terror = []
 
-    // console.log(filmes)
 
     filmes.map((film, inx) => {
         console
@@ -373,7 +372,6 @@ export const NavBar = (props) => {
             terror.push(film)
         }
     })
-    // console.log(ficcao)
 
     return (
         <div className='nav-bar'>

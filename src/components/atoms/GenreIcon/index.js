@@ -4,7 +4,8 @@ import './index.css';
 export const GenreIcon = (props) => {
 
   return (
-    <div className='genreIcon'>{props.children}</div>
+    <div className='genre-icon-corpo'><div className='genreIcon'>{props.children}</div></div>
+    
   );
 }
 

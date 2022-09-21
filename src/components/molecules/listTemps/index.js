@@ -11,6 +11,7 @@ import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
 //import { useNavigation } from '@react-navigation/native';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
+import Load from '../../atoms/Loader/index.js'
 
 import './index.css'
 
@@ -24,12 +25,11 @@ const StyledRating = styled(Rating)({
 });
 
 export const ListTemps = (props) => {
-    // console.log(props.midia)
     const [expandTemp, setexpandTemp] = React.useState(false)
     const toggleActiveClass = () => {
         setexpandTemp(!expandTemp)
     }
-    console.log(props)
+
     let epipods = []
 
     return (
@@ -47,13 +47,13 @@ export const ListTemps = (props) => {
                             
                             mid.season === props.index + 1 
                             ? epipods.push(mid)
-                            : console.log(epipods)
+                            : ''
                         
                         })
-                            // props.midia[props.index].season === props.index + 1 ?
-                            //     console.log('if', props.midia[props.index])
-                            //     : console.log('else', props.midia[props.index])
-                            : ''
+                            : 
+                            <div className='home-loading'>
+          <Load />
+          </div>
 
                     }
                     <CardHorizontalSlider midia={epipods} />

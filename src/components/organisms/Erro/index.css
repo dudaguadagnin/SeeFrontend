@@ -1,0 +1,22 @@
+.error-content {
+    height: 100%;
+    background-color: #3E3E3E;
+}
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px 30px;
+    text-align: center;
+}
+.error-image {
+    width: 238px;
+    height: 145.3px;
+}
+.border-red {
+    background-color: #AA1D1D;
+    padding: 6px 20px;
+    border-radius: 38px;
+    margin-bottom: 17px;
+}

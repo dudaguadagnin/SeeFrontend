@@ -11,13 +11,12 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-//import { useNavigation } from '@react-navigation/native';
+
 
 const CardHorizontal = (props) => {
-  // console.log(props)
   return (
     <div>
-      <Link className='link-card' to="/Player" state={{ play: props.item }}>
+      <Link className='link-card' to="/Player" state={props.item.title}>
         <div className='card-horizontal' >
           <div className='card-horizontal-body-image'>
             <CardImage cartaz={props.item.image} size="horizontal" />

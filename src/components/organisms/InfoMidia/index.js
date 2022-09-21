@@ -126,17 +126,13 @@ export const InfoMidia = (props) => {
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
-    console.log(midia.episodios)
-    console.log(location)
     let tamanhodetemporada = []
 
     const asyncFn = async (id) => {
-        console.log('clicks')
         await Promise.all([
             axios.get(`http://localhost:3000/episodios/${id}`)
         ])
             .then((res) => {
-                console.log(res[0].data)
                 setTemporadas(res[0].data)
             })
     }
@@ -184,9 +180,7 @@ export const InfoMidia = (props) => {
     for (let i = 0; i < location.state.props.season_quantity; i++) {
         teste.push(i)
     }
-    console.log(temporadas)
 
-    // console.log(location)
     return (
         <div className='InfoMidia'>
             <NavBar
@@ -194,14 +188,12 @@ export const InfoMidia = (props) => {
                 onClick={() => closeMenu()}
                 exact
             ></NavBar>
+            <div className='info-type'><GenericText color="gray">Informações</GenericText></div>
             <div className='info-header'>
                 <div><CardImage size="small" cartaz={location.state.props.image} /></div>
                 <div className="info-header-inicial-info">
                     <GenericText size="large">{location.state.props.title}</GenericText>
                     <div className='info-avalitate inf-flex'>
-                        <div className='info-header-avaliate inf-flex'>
-                            <GenericText size="small" className="info-avaliate-padd">{location.state.props.evaluation}</GenericText>
-                        </div>
                         <div className='info-header-genre'>
                             <GenreIcon >{generos}</GenreIcon>
                         </div>
@@ -252,7 +244,6 @@ export const InfoMidia = (props) => {
             {location.state.props.season_quantity ?
 
                 teste.map((serie, idxex) => {
-                    console.log(temporadas)
                     return (
                         <div onClick={() => asyncFn(location.state.props.id)}>
                             <ListTemps index={idxex} midia={temporadas} />

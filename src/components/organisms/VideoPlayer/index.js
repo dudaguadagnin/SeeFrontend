@@ -41,7 +41,6 @@ export const VideoPlayer = (props) => {
   };
 
   const location = useLocation()
-  console.log(location)
 
   return (
     <View >

@@ -6,37 +6,6 @@ import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
 
 export const CardHorizontalSlider = (props) => {
 
-
-    const SLIDER_WIDTH = Dimensions.get('window').width + 1
-    const ITEM_WIDTH = Math.round(SLIDER_WIDTH)
-    const series = [
-        {
-          title: 'serie titulo',
-          duration: '28min',
-          cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-          title: 'serie titulo',
-          duration: '29min',
-          cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-          title: 'serie titulo',
-          duration: '29min',
-          cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-          title: 'serie titulo', 
-          duration: '29min',
-          cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-          title: 'serie titulo',
-          duration: '29min',
-          cartaz: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-      ]
-      //console.log('aquis')
     return (
         <div className='card-slider'>
             <Carousel
