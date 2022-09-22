@@ -5,10 +5,11 @@ import './index.css'
 export const GenericText = (props) => {
     // color = gray || black || white
     // size = small || medium || large || subtitlebold
+    // bold = bold
 
   return (
     <div className='generic-text'>
-       <span className={`text-color-${props.color} text-size-${props.size}`}>{props.children}</span>
+       <span className={`text-color-${props.color} text-size-${props.size}  text-bold-${props.bold}`}>{props.children}</span>
     </div>
   );
 }

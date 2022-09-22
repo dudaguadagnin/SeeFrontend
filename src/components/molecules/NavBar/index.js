@@ -7,22 +7,23 @@ import Seta from '../../../../assets/seta.png'
 import './index.css'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
-
-//import { useNavigation } from '@react-navigation/native';
 import {
     BrowserRouter,
     Routes,
     Route,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
 
 export const NavBar = (props) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const [newNavBarNormal, setnewNavBarNormal] = React.useState(true)
     const [newNavBarNormalOpen, setnewNavBarNormalOpen] = React.useState(false)
     const [filmes, setFilmes] = React.useState([])
     const [series, setSeries] = React.useState([])
-    const [generos, setGeneros] = React.useState([])
+    const [navArrow, setNavArrow] = React.useState(false)
+    
 
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
@@ -30,6 +31,7 @@ export const NavBar = (props) => {
     const TogglePesquisa = () => {
         setnewNavBarNormal(!newNavBarNormal)
     }
+
     React.useEffect(() => {
         const asyncFn = async () => {
             const res = await axios.get(`http://localhost:3000/filmes`);
@@ -37,6 +39,7 @@ export const NavBar = (props) => {
             setFilmes(res.data);
             setSeries(ser.data);
         }
+        setNavArrow(props.navArrow)
         asyncFn();
     }, []);
 
@@ -92,8 +95,21 @@ export const NavBar = (props) => {
 
     return (
         <div className='nav-bar'>
-            {
-                newNavBarNormal ?
+            { navArrow ?
+                <div className='nav-bar-components'>
+                    <div className="nav-button-toggle">
+                        <img onClick={() => navigate(-1)} className='nav-hamb-arrow' src={Seta} />
+                    </div>
+                    <div className='nav-logo'>
+                        <img className='nav-logo' src={logo} />
+                    </div>
+                    <div className='nav-search' >
+                        <div className='nav-search-lupa'>
+                            <img className='nav-search-img' src={Search} />
+                        </div>
+                    </div>
+                </div>
+                : newNavBarNormal ?
                     <div className='nav-bar-components'>
                         <div className="nav-button-toggle">
                             {newNavBarNormalOpen ?
@@ -125,7 +141,7 @@ export const NavBar = (props) => {
                             </div>
                         </div>
                     </div>
-            }
+             }
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>

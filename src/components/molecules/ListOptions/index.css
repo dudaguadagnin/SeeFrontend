@@ -1,0 +1,16 @@
+.list-option-content {
+    color: white;
+}
+.list-option-arrow {
+    transform: rotate(268deg);
+    width: 16px;
+    height: 9px;
+}
+.list-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 27px;
+    padding: 0;
+    text-transform: none;
+}
