@@ -4,6 +4,7 @@ import Hamb from '../../../../assets/frame.png'
 import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import Seta from '../../../../assets/seta.png'
+import CardSearch from '../../atoms/CardSearch/index.js'
 import './index.css'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
@@ -23,7 +24,7 @@ export const NavBar = (props) => {
     const [filmes, setFilmes] = React.useState([])
     const [series, setSeries] = React.useState([])
     const [navArrow, setNavArrow] = React.useState(false)
-    
+
 
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
@@ -93,9 +94,26 @@ export const NavBar = (props) => {
         }
     })
 
+    const filme = [
+        'O Poderoso Chefão',
+        'Harry Potter',
+        'O Senhor dos Anéis',
+    ]
+
+    const [busca, setBusca] = React.useState('')
+
+    const filmesFiltrados = Object.keys(filmes).filter((filme) => filmes[filme].title.toLowerCase().includes(busca.toLowerCase()))
+    // const filmesFiltrados = filmes.filter((filme) => {
+    //     console.log(filme.title)
+    //     filme.title.toLowerCase().includes(busca.toLowerCase())
+    // })
+
+    console.log(busca)
+    console.log(filmesFiltrados)
+
     return (
         <div className='nav-bar'>
-            { navArrow ?
+            {navArrow ?
                 <div className='nav-bar-components'>
                     <div className="nav-button-toggle">
                         <img onClick={() => navigate(-1)} className='nav-hamb-arrow' src={Seta} />
@@ -133,7 +151,27 @@ export const NavBar = (props) => {
                             <img onClick={TogglePesquisa} className='nav-hamb-arrow' src={Seta} />
                         </div>
                         <div className='nav-input-open'>
-                            <input type="text" className='nav-search-input' placeholder="Pesquise aqui..." />
+                            <input
+                                className='nav-search-input'
+                                placeholder="Pesquise aqui..."
+                                type='text'
+                                value={busca}
+                                onChange={(e) => setBusca(e.target.value)}
+                            />
+                            {
+                                busca !== '' ?
+                                    <ul>
+                                        {filmesFiltrados.map((filme) => (
+                                            
+                                            <CardSearch 
+                                            key={filme} 
+                                            title={filmes[filme].title}
+                                            image={filmes[filme].image}></CardSearch>
+                                        ))}
+                                    </ul>
+                                    : ''
+                            }
+
                         </div>
                         <div className='nav-search' >
                             <div className='nav-search-lupa-open'>
@@ -141,7 +179,7 @@ export const NavBar = (props) => {
                             </div>
                         </div>
                     </div>
-             }
+            }
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
