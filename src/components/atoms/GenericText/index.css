@@ -24,6 +24,11 @@
     font-size: 19px;
     font-weight: 600;
 }
+.text-size-subtitleboldmenor {
+    font-family: system-ui;
+    font-size: 17px;
+    font-weight: 600;
+}
 .text-size-large {
     font-family: system-ui;
     font-size: 24px;

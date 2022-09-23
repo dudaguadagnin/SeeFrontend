@@ -15,7 +15,7 @@ export const ListOption = (props) => {
         <div className='list-option-content'>
             <div>
                 <Link to="/Resposta" className='list-option' state={props}>
-                <GenericText size="subtitlebold" color="gray">{props.children}</GenericText>
+                <GenericText size="subtitleboldmenor" color="gray">{props.children}</GenericText>
                 <img src={Seta} className="list-option-arrow"/>
                 </Link>
             </div>

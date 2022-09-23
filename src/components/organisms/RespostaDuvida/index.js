@@ -11,7 +11,7 @@ export const RespostaDuvida = (props) => {
     const location = useLocation()
     console.log(location)
     return (
-        <div className='duvida-content'>
+        <div className='resposta-duvida-content'>
             <NavBar
                 activeClassName="active-link"
                 navArrow
@@ -34,15 +34,19 @@ export const RespostaDuvida = (props) => {
                     })}
 
                 </div>
-                <div className='resposta-duvida-body-subtitle'>
-                    <GenericText color="gray" bold="bold">Ou também pode:</GenericText>
-                </div>
-                <div className='resposta-duvida-body-text'>
-                    {location.state.props.oupode.map((oupode, inx) => {
-                        return (
-                        <div  className='resposta-text'><GenericText color="gray" bold="bold">{oupode}</GenericText></div>)
-                    })}
-                </div>
+                {location.state.props.oupode.length === 0 ? '' :
+                    <div>
+                        <div className='resposta-duvida-body-subtitle'>
+                            <GenericText color="gray" bold="bold">Ou também pode:</GenericText>
+                        </div>
+                        <div className='resposta-duvida-body-text'>
+                            {location.state.props.oupode.map((oupode, inx) => {
+                                return (
+                                    <div className='resposta-text'><GenericText color="gray" bold="bold">{oupode}</GenericText></div>)
+                            })}
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

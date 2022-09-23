@@ -120,13 +120,13 @@ export const InfoMidia = (props) => {
     ]
     const [generos, setGeneros] = React.useState('')
     const [temporadas, setTemporadas] = React.useState([])
-    const [testes, setTeste] = React.useState([])
 
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
-    let tamanhodetemporada = []
+    console.log(location, midia)
+
 
     const asyncFn = async (id) => {
         await Promise.all([
@@ -176,9 +176,9 @@ export const InfoMidia = (props) => {
             setGeneros('terror')
         }
     })
-    let teste = []
+    let seasonquantity = []
     for (let i = 0; i < location.state.props.season_quantity; i++) {
-        teste.push(i)
+        seasonquantity.push(i)
     }
 
     return (
@@ -189,8 +189,10 @@ export const InfoMidia = (props) => {
                 exact
             ></NavBar>
             <div className='info-type'><GenericText color="gray">Informações</GenericText></div>
+
             <div className='info-header'>
                 <div><CardImage size="small" cartaz={location.state.props.image} /></div>
+
                 <div className="info-header-inicial-info">
                     <GenericText size="large">{location.state.props.title}</GenericText>
                     <div className='info-avalitate inf-flex'>
@@ -198,6 +200,7 @@ export const InfoMidia = (props) => {
                             <GenreIcon >{generos}</GenreIcon>
                         </div>
                     </div>
+
                     {location.state.props.season_quantity ?
                         <div className='info-header-text inf-flex'>
                             <div className='info-header-text-padd'>
@@ -213,56 +216,77 @@ export const InfoMidia = (props) => {
                             <GenericText size="small" color="gray">{location.state.props.duration}</GenericText>
                         </div>
                     }
+
                     <div className='info-header-text inf-flex'>
                         <div className='info-header-text-padd'>
                             <GenericText size="small">Ano:</GenericText>
                         </div>
                         <GenericText size="small" color="gray">{location.state.props.year}</GenericText>
                     </div>
+
                     <div className='info-header-text inf-flex'>
                         <div className='info-header-text-padd'>
                             <GenericText size="small">Classificação:</GenericText>
                         </div>
                         <GenericText size="small" color="gray">+14</GenericText>
                     </div>
-                    <Link className="info-link-assistir" to="/Player" state={location.state.props.title}>
-                        <div className='info-header-button'>
-                            <img className='info-play-button' src={Play} />
-                            <span className='info-header-assistir'>Assistir agora</span>
-                        </div>
-                    </Link>
-
-
+                    {location.state.props.season_quantity ? ''
+                        :
+                        <Link className="info-link-assistir" to="/Player" state={location.state.props.title}>
+                            <div className='info-header-button'>
+                                <img className='info-play-button' src={Play} />
+                                <span className='info-header-assistir'>Assistir agora</span>
+                            </div>
+                        </Link>
+                    }
                 </div>
             </div>
+
             <div className='info-sinopse'>
                 <GenericText>Sinopse:</GenericText>
                 <div className='info-sinopse-description'>
                     <GenericText color="gray">{location.state.props.description}</GenericText>
                 </div>
             </div>
+
             {location.state.props.season_quantity ?
 
-                teste.map((serie, idxex) => {
+                seasonquantity.map((serie, idxex) => {
                     return (
                         <div onClick={() => asyncFn(location.state.props.id)}>
                             <ListTemps index={idxex} midia={temporadas} />
                         </div>
                     )
                 })
-
-                :
-                ''
+                : ''
             }
+
+
+
             <div className='info-footer'>
-                <div className='info-footer-text'>
-                    <GenericText>Também pode gostar de:</GenericText>
-                </div>
-                <div className='info-footer-cards'>
-                    <div className='info-footer-cards-carrossel'><CardSlider midia={filmes} /></div>
-                    <CardSlider midia={filmes} />
-                </div>
+                {
+                    midia.filmes.length === 0
+                        ? ''
+                        : <div>
+                            <div className='info-footer-text'>
+                                <GenericText>Também pode gostar de:</GenericText>
+                            </div>
+                            <div className='info-footer-cards'>
+                                <div className='info-footer-cards-carrossel'>
+                                    {
+                                        midia.series[0].map((ser, inx) => {
+                                            return <CardSlider midia={ser} />
+                                        })
+                                    }
+
+                                </div>
+
+                            </div>
+                        </div>
+                }
             </div>
+
+
         </div >
     );
 }

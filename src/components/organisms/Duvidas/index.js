@@ -50,6 +50,7 @@ export const Duvidas = (props) => {
                 '2 - Verificar sua conexão de internet. ',
                 '3 - Escolher outro título. ',
             '4 - Voltar e tentar novamente em outro horário.'],
+            oupode: []
         }
     ])
     return (

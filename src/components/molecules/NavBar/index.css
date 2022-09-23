@@ -1,7 +1,8 @@
 .nav-bar {
-    background-color: #12142B;
+    /* background-color: #12142B; */
     height: 90px;
 }
+
 .menuNav {
     overflow-y: scroll;
     list-style: none;
@@ -11,34 +12,59 @@
     left: 0;
     width: 0;
     overflow: hidden;
-    
+
 }
+
 .navbutton {
     background-color: #3fffd2;
 }
 
 .menuNav.showMenu {
+    background-image: linear-gradient(180deg, #223f5a, #1a1d3c, #12142b, #12142b);
     width: 100%;
-    background-color: #12142B;
     padding: 23px 27px;
     position: absolute;
     z-index: 1;
     font-family: system-ui;
     font-weight: 600;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 24px;
+    /* background-image: linear-gradient(180deg, #14324e, #12142b); */
+    
 }
+
 .showModalPesquisa {
     width: 100%;
+    background-image: linear-gradient(180deg, #1b4164, #383838, #000000, #12142b);
     background-color: #12142B;
     /* padding: 23px 27px; */
     position: absolute;
     z-index: 1;
     height: 100%;
-    
 }
+
 .cards-pesquisa {
-display: flex;
-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.pesquisa-sem-conteudo {
+    margin: 10px 27px;
+}
+
+.text-busca {
+    margin: 0px 27px 20px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 6px;
+}
+
+.text-busca-img {
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+}
+
 a {
     display: block;
     padding: 10px 40px;
@@ -47,18 +73,22 @@ a {
     text-transform: uppercase;
     font-weight: bold;
 }
-.menuNav .nav-ul-li{
+
+.menuNav .nav-ul-li {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     padding: 0px 0px 14px;
     text-transform: none;
+    font-weight: 600;
 }
+
 .nav-ol {
     list-style: none;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     padding: 0px 0px 15px;
 }
+
 .nav-ol-li {
     list-style: none;
     color: white;
@@ -78,20 +108,23 @@ a {
     width: 34.73px;
     height: 31px;
 }
+
 .nav-hamb-arrow {
     width: 30px;
     height: 30px;
 }
+
 .nav-bar-components {
     display: flex;
     padding: 14px 27px 16px 27px;
     justify-content: space-between;
     align-items: center;
+    /*background-image: linear-gradient(180deg, #1b8fbb, #12142b);*/
 }
+
 .nav-logo {
     width: 87.96px;
     height: 63.19px;
-    
 }
 
 .nav-search-lupa-open {
@@ -103,29 +136,34 @@ a {
     align-items: center;
     justify-content: center;
 }
+
 .nav-input-open {
     height: 63.19px;
     display: flex;
     align-items: center;
 }
+
 .nav-search-img {
     width: 28px;
     height: 27px;
 }
+
 .nav-search-input {
+    font-family: system-ui;
     height: 34px;
     width: 182px;
     margin-right: 7px;
     margin-left: 7px;
     border-radius: 12px;
     font-size: 18px;
-    background-color: #686868;
-    color: white;
+    background-color: #e1e1e1;;
+    color: black;
     padding: 0px 0px 0px 15px;
     font-weight: 600;
     border: none;
     outline: 0;
 }
+
 .nav-search-lupa {
     width: 47px;
     height: 47px;

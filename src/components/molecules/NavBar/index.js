@@ -5,6 +5,7 @@ import logo from '../../../../assets/logoText.png'
 import Search from '../../../../assets/search.png'
 import Seta from '../../../../assets/seta.png'
 import CardSearch from '../../atoms/CardSearch/index.js'
+import GenericText from '../../atoms/GenericText';
 import './index.css'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
@@ -104,7 +105,7 @@ export const NavBar = (props) => {
     // })
 
     console.log(busca)
-    console.log(filmesFiltrados)
+    console.log('filtro', filmesFiltrados)
 
     return (
         <div className='nav-bar'>
@@ -131,9 +132,11 @@ export const NavBar = (props) => {
                                 <img onClick={Toggle} className='nav-hamb' src={Hamb} />
                             }
                         </div>
-                        <div className='nav-logo'>
-                            <img className='nav-logo' src={logo} />
-                        </div>
+                        <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>
+                            <div className='nav-logo' >
+                                <img className='nav-logo' src={logo} />
+                            </div>
+                        </Link>
                         <div className='nav-search' >
                             <div className='nav-search-lupa' onClick={TogglePesquisa}>
                                 <img className='nav-search-img' src={Search} />
@@ -165,6 +168,7 @@ export const NavBar = (props) => {
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
                 <Link className="nav-ul-li" to="/Series" state={{ genre: series, type: 'Séries' }}>Séries</Link>
+                <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
                 <ol className="nav-ol"> Gêneros
                     <Link className="nav-ol-li" to="/Acao" state={{ genre: acao, type: 'Ação' }}>
                         Ação
@@ -199,20 +203,45 @@ export const NavBar = (props) => {
                         Terror
                     </Link>
                 </ol>
-                <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
+                
             </ul>
 
             {
                 busca !== '' ?
                     <div className={`pesquisa-expand ${!newNavBarNormal ? " showModalPesquisa" : ""}`}>
-                        <div className='cards-pesquisa'>
-                        {filmesFiltrados.map((filme) => (
+                        {
+                            !newNavBarNormal ?
+                                <div className="text-busca">
+                                    <img className="text-busca-img" src={Search} />
+                                    <GenericText size="subtitlebold">Resultados para: {busca}</GenericText>
+                                </div>
+                                : ''
+                        }
 
-                            <CardSearch
-                                key={filme}
-                                item={filmes[filme]}
-                            ></CardSearch>
-                        ))}
+                        <div className={` ${!newNavBarNormal ? " cards-pesquisa" : ""}`}>
+
+                            {
+                                !newNavBarNormal ?
+
+                                    filmesFiltrados.map((filme) => (
+                                        <CardSearch
+                                            key={filme}
+                                            item={filmes[filme]}
+                                        ></CardSearch>
+                                    ))
+
+                                    : ''
+                            }
+
+                            {
+                                !newNavBarNormal ?
+                                    filmesFiltrados.length === 0 ?
+                                        <div className='pesquisa-sem-conteudo'>
+                                            <GenericText color="white">Desculpe, não temos esse conteúdo em nossa plataforma.</GenericText>
+                                        </div>
+                                        : ''
+                                    : ''
+                            }
                         </div>
                     </div>
                     : ''
