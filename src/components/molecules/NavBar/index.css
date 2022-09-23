@@ -26,6 +26,19 @@
     font-family: system-ui;
     font-weight: 600;
 }
+.showModalPesquisa {
+    width: 100%;
+    background-color: #12142B;
+    /* padding: 23px 27px; */
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    
+}
+.cards-pesquisa {
+display: flex;
+flex-wrap: wrap;
+}
 a {
     display: block;
     padding: 10px 40px;

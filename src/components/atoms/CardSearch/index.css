@@ -1,33 +1,28 @@
-.card {
+.card-search {
     width: 92px;
     height: 168px;
     border-radius: 9px;
+    padding: 0px 0px 16px 25px;
 }
-.card:first-child {
-    padding-left: 20px;
-}
-.card:last-child {
-    padding-right: 20px;
-}
-.link-card{ 
+.link-card-search{ 
     text-decoration: none;
     display: contents;
     text-transform: none;
     padding: 0;
 }
-.card-body-image {
+.card-search-body-image {
     margin: 0;
     padding: 0;
 }
-.card-body-info {
+.card-search-body-info {
     margin-top: -9px;
     display: flex;
     justify-content: flex-start;
 }
-.card-info-avaliate {
+.card-search-info-avaliate {
     display: flex;
     padding: 0px 1px;
 }
-.card-body-time {
+.card-search-body-time {
     padding-left: 7px;
 }

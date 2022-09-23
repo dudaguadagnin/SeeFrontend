@@ -11,26 +11,26 @@ import {
   Link
 } from "react-router-dom";
 
-export const Card = (props) => {
-console.log(props)
+export const CardSearch = (props) => {
+console.log('card', props)
 
   return (
     <div> 
-      {/* <Link className='link-card' to="/InfoMidia" state={{props: props.item, filme:true}}>
-    <div className='card' >
-      <div className='card-body-image'>
+      <Link className='link-card-search' to="/InfoMidia" state={{props: props.item, filme:true}}>
+    <div className='card-search' >
+      <div className='card-search-body-image'>
         <CardImage cartaz={props.item.image} size="medium" />
       </div>
-      <div className='card-body-title'>
+      <div className='card-search-body-title'>
         <CardTitle>{props.item.title}</CardTitle>
       </div>
-      <div className='card-body-info'>
+      <div className='card-search-body-info'>
         <GenericText size="small" color="gray">{props.item.duration? props.item.duration : props.item.episodeDuration}</GenericText>
       </div>
     </div>
-    </Link> */}
+    </Link>
     </div>
   );
 }
 
-export default Card;
+export default CardSearch;

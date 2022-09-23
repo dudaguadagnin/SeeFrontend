@@ -94,15 +94,10 @@ export const NavBar = (props) => {
         }
     })
 
-    const filme = [
-        'O Poderoso Chefão',
-        'Harry Potter',
-        'O Senhor dos Anéis',
-    ]
-
     const [busca, setBusca] = React.useState('')
 
-    const filmesFiltrados = Object.keys(filmes).filter((filme) => filmes[filme].title.toLowerCase().includes(busca.toLowerCase()))
+    const filmesFiltrados = Object.keys(filmes).filter(
+        (filme) => filmes[filme].title.toLowerCase().includes(busca.toLowerCase()))
     // const filmesFiltrados = filmes.filter((filme) => {
     //     console.log(filme.title)
     //     filme.title.toLowerCase().includes(busca.toLowerCase())
@@ -158,20 +153,6 @@ export const NavBar = (props) => {
                                 value={busca}
                                 onChange={(e) => setBusca(e.target.value)}
                             />
-                            {
-                                busca !== '' ?
-                                    <ul>
-                                        {filmesFiltrados.map((filme) => (
-                                            
-                                            <CardSearch 
-                                            key={filme} 
-                                            title={filmes[filme].title}
-                                            image={filmes[filme].image}></CardSearch>
-                                        ))}
-                                    </ul>
-                                    : ''
-                            }
-
                         </div>
                         <div className='nav-search' >
                             <div className='nav-search-lupa-open'>
@@ -220,6 +201,22 @@ export const NavBar = (props) => {
                 </ol>
                 <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
             </ul>
+
+            {
+                busca !== '' ?
+                    <div className={`pesquisa-expand ${!newNavBarNormal ? " showModalPesquisa" : ""}`}>
+                        <div className='cards-pesquisa'>
+                        {filmesFiltrados.map((filme) => (
+
+                            <CardSearch
+                                key={filme}
+                                item={filmes[filme]}
+                            ></CardSearch>
+                        ))}
+                        </div>
+                    </div>
+                    : ''
+            }
 
 
         </div >

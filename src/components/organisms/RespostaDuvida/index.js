@@ -35,7 +35,7 @@ export const RespostaDuvida = (props) => {
 
                 </div>
                 <div className='resposta-duvida-body-subtitle'>
-                    <GenericText ccolor="gray" bold="bold">Ou também pode:</GenericText>
+                    <GenericText color="gray" bold="bold">Ou também pode:</GenericText>
                 </div>
                 <div className='resposta-duvida-body-text'>
                     {location.state.props.oupode.map((oupode, inx) => {
