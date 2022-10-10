@@ -20,6 +20,8 @@ import store from './src/store/index.js';
 import Error from './src/components/organisms/Erro';
 import Duvidas from './src/components/organisms/Duvidas/index.js';
 import RespostaDuvida from './src/components/organisms/RespostaDuvida/index.js';
+import Login from './src/components/organisms/Login';
+import Cadastro from './src/components/organisms/Cadastro';
 
 export default function App() {
   return (
@@ -27,7 +29,7 @@ export default function App() {
     <Provider store={store}>
       <BrowserRouter >
         <Routes>
-        
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/Home" element={<Home />} />
          
           <Route path="/Filmes" element={<Genero />} />
@@ -48,6 +50,9 @@ export default function App() {
           <Route path="/romance" element={<Genero />} />
           <Route path="/suspense" element={<Genero />} />
           <Route path="/terror" element={<Genero />} />
+          <Route path="/terror" element={<Genero />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Cadastro" element={<Cadastro />} />
 
         </Routes>
       </BrowserRouter>
