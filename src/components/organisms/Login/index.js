@@ -5,7 +5,23 @@ import Input from '../../atoms/Input/index.js'
 import GenericTitle from '../../atoms/GenericTitle/index.js';
 import NavInfo from '../../molecules/NavInfo/index.js';
 import Button from '../../atoms/Button/index.js';
+import GenericLink from '../../atoms/GenericLink/index.js';
+import axios from 'axios';
+
 export const Login = (props) => {
+  const [ButtonActive, setButtonActive] = React.useState(false)
+  const Enviar = () => {
+      axios.post(`http://localhost:3000/login`, {
+        email: 'moreto@email.com',
+        password: '123456'
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   return (
     <div className='login-top'>
@@ -30,9 +46,9 @@ export const Login = (props) => {
             <Input type="password">Senha</Input>
           </div>
         </div>
-        <div className='login-content-button'>
+        <div className='login-content-button' onClick={() => Enviar()}>
           <div className='login-button'>
-          <Button>Entrar</Button>
+          <Button ative >Entrar</Button>
           </div>
           <div>
             <div className='login-cadastre-se'>
@@ -44,7 +60,7 @@ export const Login = (props) => {
               </div>
               <div className='login-sem-cadastro'>
                 <GenericText>Não possui cadastro?</GenericText>
-                <GenericText>Clique aqui</GenericText>
+                <GenericLink color="white" size="medium" line>Clique aqui</GenericLink>
               </div>
             </div>
           </div>

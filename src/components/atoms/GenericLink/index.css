@@ -1,0 +1,23 @@
+.generic-link-line {
+    display: block;
+    padding: 0px;
+    text-decoration: underline;
+    text-transform: none;
+    font-weight: inherit
+}
+.generic-link-no-line {
+    display: block;
+    padding: 0px;
+    text-decoration: none;
+    text-transform: none;
+    font-weight: inherit
+}
+.generic-link-color-black {
+    color: black;
+}
+.generic-link-color-white {
+    color: white;
+}
+.generic-link-color-undefined {
+    color: white;
+}
