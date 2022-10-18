@@ -2,6 +2,8 @@
     width: 92px;
     height: 168px;
     border-radius: 9px;
+    background-color: transparent !important;
+    border: none !important;
 }
 .card:first-child {
     padding-left: 27px;
