@@ -29,10 +29,23 @@
     font-size: 17px;
     font-weight: 600;
 }
-.text-size-large {
+/* .text-size-large {
     font-family: system-ui;
     font-size: 19px;
+} */
+
+.text-size-large {
+    font-family: system-ui;
+    font-size: 15px;
+    font-weight: bold;
 }
+
+.text-size-large-menor {
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .text-size-undefined {
     font-family: system-ui;
     font-size: 16px;

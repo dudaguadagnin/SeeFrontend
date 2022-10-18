@@ -1,4 +1,4 @@
-.button-large {
+/* .button-large {
     width: 100%;
     height: 46px;
     background: #A5BDCD;
@@ -8,4 +8,17 @@
     font-size: 16px;
     font-weight: 500;
     color: white;
+} */
+
+.button-large {
+    width: 85%;
+    height: 46px;
+    background: #A5BDCD;
+    border-radius: 53px;
+    border: none;
+    font-family: system-ui;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
 }
+

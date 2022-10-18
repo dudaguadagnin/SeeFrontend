@@ -4,5 +4,28 @@
 }
 
 .cadastro-title {
-    padding-bottom: 24px;
+    padding: 20px 10px 10px 50px;
+}
+
+.nome-input {
+    padding: 10px 10px 10px 50px;
+    height: 55px;
+}
+
+.cadastro-regra-senha {
+    padding: 0 10px 10px 55px;
+}
+
+.cadastro-regra-icon {
+    padding: 0 10px 10px 55px;
+}
+
+.cadastro-button {
+    padding: 10px 10px 10px 50px;
+}
+
+.ja-possui-cadastro {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 75px;
 }
