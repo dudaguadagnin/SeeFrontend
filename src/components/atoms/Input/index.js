@@ -3,13 +3,10 @@ import './index.css'
 
 
 export const Input = (props) => {
-    const teste = () => {
-        console.log(document.getElementById("meu-i").value)
-    }
 
     return (
-        <div className='input-content' onClick={() => {teste()}}>
-            
+        <div className='input-content'>
+            <input className='input' type={props.type} placeholder={props.children} ></input>
         </div>
     );
 }
