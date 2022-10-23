@@ -10,6 +10,12 @@
 .text-color-gray {
     color: #B9B9B9;
 }
+.text-color-green {
+    color: #7EB863;
+}
+.text-color-red {
+    color: #DA1313;
+}
 .text-size-small {
     font-family: system-ui;
     font-weight: 700;

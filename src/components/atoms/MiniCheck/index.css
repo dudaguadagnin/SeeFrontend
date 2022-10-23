@@ -1,0 +1,15 @@
+.mini-check-green {
+    filter: hue-rotate(273deg) saturate(4) brightness(1.2) grayscale(0.2);
+}
+
+.mini-check-red {
+    filter: hue-rotate(128deg) saturate(80) brightness(10) grayscale(0.2);
+}
+
+.mini-check-small {
+    width: 10px;
+    height: 10px;
+}
+.mini-check-medium {
+
+}

@@ -12,8 +12,9 @@
     height: 55px;
 }
 
+
 .cadastro-regra-senha {
-    padding: 0 10px 10px 55px;
+    padding: 0 10px 2px 55px;
 }
 
 .cadastro-regra-icon {
@@ -28,4 +29,14 @@
     display: flex;
     align-items: center;
     padding: 10px 10px 10px 75px;
+}
+
+.cadastro-mini-check-icon {
+    margin-right: 10px;
+}
+
+.cadastro-criterio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }

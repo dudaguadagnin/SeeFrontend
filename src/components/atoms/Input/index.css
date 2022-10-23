@@ -14,8 +14,13 @@
     color: #758191;
     font-weight: bold;
     padding-left: 15px;
+    border: none;
 }
-
+.input-check-img {
+    width: 14.98px;
+    height: 15.05px;
+    margin-left: -29px;
+}
 
 input:focus {
     box-shadow: 0 0 0 0;
