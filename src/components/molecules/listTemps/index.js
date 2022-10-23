@@ -29,9 +29,7 @@ export const ListTemps = (props) => {
     const toggleActiveClass = () => {
         setexpandTemp(!expandTemp)
     }
-
     let epipods = []
-
     return (
         <div className='list-temp-body'>
             <div className='list-temp'>
@@ -41,20 +39,15 @@ export const ListTemps = (props) => {
                 </div>
                 <div className={`list-temp-cards ${expandTemp ? 'showTemp' : 'ocultoTemp'}`}>
                     {
-                        props.midia.length
-                        !== 0 ?
-                        props.midia.map((mid, idx) => {
-                            
-                            mid.season === props.index + 1 
-                            ? epipods.push(mid)
-                            : ''
-                        
-                        })
-                            : 
-                            <div className='home-loading'>
-          <Load />
-          </div>
-
+                        props.midia.length !== 0
+                            ? props.midia.map((mid, idx) => {
+                                mid.season === props.index + 1
+                                    ? epipods.push(mid)
+                                    : ''
+                            })
+                            : <div className='home-loading'>
+                                <Load />
+                            </div>
                     }
                     <CardHorizontalSlider midia={epipods} />
                 </div>

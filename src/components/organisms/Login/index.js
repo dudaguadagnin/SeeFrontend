@@ -57,7 +57,7 @@ export const Login = (props) => {
 
   return (
     <div className='login-top'>
-      <NavInfo />
+      <NavInfo>Login</NavInfo>
       <div className='login-content'>
         <div className='login-text'>
           <div className='login-title'>

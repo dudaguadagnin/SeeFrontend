@@ -126,10 +126,9 @@ export const NavBar = (props) => {
                 : newNavBarNormal ?
                     <div className='nav-bar-components'>
                         <div className="nav-button-toggle">
-                            {newNavBarNormalOpen ?
-                                <img onClick={Toggle} className='nav-hamb-arrow' src={Seta} />
-                                :
-                                <img onClick={Toggle} className='nav-hamb' src={Hamb} />
+                            {newNavBarNormalOpen
+                                ? <img onClick={Toggle} className='nav-hamb-arrow' src={Seta} />
+                                : <img onClick={Toggle} className='nav-hamb' src={Hamb} />
                             }
                         </div>
                         <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>
@@ -143,8 +142,7 @@ export const NavBar = (props) => {
                             </div>
                         </div>
                     </div>
-                    :
-                    <div className='nav-bar-components'>
+                    : <div className='nav-bar-components'>
                         <div className="nav-button-toggle">
                             <img onClick={TogglePesquisa} className='nav-hamb-arrow' src={Seta} />
                         </div>
@@ -164,6 +162,8 @@ export const NavBar = (props) => {
                         </div>
                     </div>
             }
+
+            {/* opçoes do menu */}
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
@@ -203,51 +203,43 @@ export const NavBar = (props) => {
                         Terror
                     </Link>
                 </ol>
-                
             </ul>
 
+
+            {/* busca */}
             {
                 busca !== '' ?
                     <div className={`pesquisa-expand ${!newNavBarNormal ? " showModalPesquisa" : ""}`}>
-                        {
-                            !newNavBarNormal ?
-                                <div className="text-busca">
-                                    <img className="text-busca-img" src={Search} />
-                                    <GenericText size="subtitlebold">Resultados para: {busca}</GenericText>
-                                </div>
-                                : ''
+                        {!newNavBarNormal ?
+                            <div className="text-busca">
+                                <img className="text-busca-img" src={Search} />
+                                <GenericText size="subtitlebold">Resultados para: {busca}</GenericText>
+                            </div>
+                            : ''
                         }
-
                         <div className={` ${!newNavBarNormal ? " cards-pesquisa" : ""}`}>
-
-                            {
-                                !newNavBarNormal ?
-
-                                    filmesFiltrados.map((filme) => (
-                                        <CardSearch
-                                            key={filme}
-                                            item={filmes[filme]}
-                                        ></CardSearch>
-                                    ))
-
-                                    : ''
+                            {!newNavBarNormal ?
+                                filmesFiltrados.map((filme) => (
+                                    <CardSearch
+                                        key={filme}
+                                        item={filmes[filme]}
+                                    ></CardSearch>
+                                ))
+                                : ''
                             }
 
-                            {
-                                !newNavBarNormal ?
-                                    filmesFiltrados.length === 0 ?
-                                        <div className='pesquisa-sem-conteudo'>
-                                            <GenericText color="white">Desculpe, não temos esse conteúdo em nossa plataforma.</GenericText>
-                                        </div>
-                                        : ''
+                            {!newNavBarNormal ?
+                                filmesFiltrados.length === 0
+                                    ? <div className='pesquisa-sem-conteudo'>
+                                        <GenericText color="white">Desculpe, não temos esse conteúdo em nossa plataforma.</GenericText>
+                                    </div>
                                     : ''
+                                : ''
                             }
                         </div>
                     </div>
                     : ''
             }
-
-
         </div >
     );
 }

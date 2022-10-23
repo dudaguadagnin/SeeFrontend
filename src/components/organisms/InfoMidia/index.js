@@ -137,9 +137,6 @@ export const InfoMidia = (props) => {
             })
     }
 
-
-    // npx react-native start
-    // yarn android
     React.useEffect(() => {
 
         if (location.state.props.genre_id === 1) {
@@ -242,6 +239,7 @@ export const InfoMidia = (props) => {
                 </div>
             </div>
 
+            {/* sinopse */}
             <div className='info-sinopse'>
                 <GenericText>Sinopse:</GenericText>
                 <div className='info-sinopse-description'>
@@ -249,8 +247,8 @@ export const InfoMidia = (props) => {
                 </div>
             </div>
 
+            {/* temporadas */}
             {location.state.props.season_quantity ?
-
                 seasonquantity.map((serie, idxex) => {
                     return (
                         <div onClick={() => asyncFn(location.state.props.id)}>
@@ -261,8 +259,7 @@ export const InfoMidia = (props) => {
                 : ''
             }
 
-
-
+            {/* sugestoes de midias */}
             <div className='info-footer'>
                 {
                     midia.filmes.length === 0

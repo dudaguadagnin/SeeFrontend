@@ -87,7 +87,7 @@ export const Cadastro = (props) => {
 
   return (
     <div className='cadastro-content'>
-      <NavInfo />  {/*Mudar para a nav correta*/}
+      <NavInfo>Cadastro</NavInfo>
       <div className='cadastro-text'>
         <div className='cadastro-title'>
           <GenericTitle size="large" color="white">Informe os campos abaixo para efetuar seu cadastro</GenericTitle>
