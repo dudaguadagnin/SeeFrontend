@@ -13,13 +13,13 @@
 }
 .info-header-inicial-info {
     padding: 2px 0px 2px 19px;
+    display: flex;
+    flex-direction: column;
 }
 .info-header-avaliate {
     padding: 0px 4px 0px 0px;
 }
-.info-avalitate {
-    padding: 2px 0px;
-}
+
 .info-header-text {
     margin: -4px 0px;
 }
@@ -61,15 +61,29 @@
     margin-bottom: 10px;
     margin-top: 5px;
 }
+.info-sinopse-description-large {
+    line-height: 16px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.info-sinopse-expanded {
+    height: 100%;
+}
+.info-sinopse-compressed {
+    height: 63px;
+}
 .info-sinopse-arrow-ler {
-    width: 11px;
-    height: 7px;
-    padding-right: 7px;
+    width: 16px;
+    height: 11px;
+    margin-right: 7px;
 }
 .info-sinopse-arrow-ler-menos {
-    width: 11px;
-    height: 7px;
-    padding-right: 7px;
+    width: 16px;
+    height: 11px;
+    margin-right: 7px;
+    transform: rotate(180deg);
 }
 .info-sinopse-ler-mais {
     display: flex;
@@ -87,6 +101,7 @@
 .info-link-assistir {
     padding: 0;
     text-transform: none;
+    text-decoration: none;
 }
 .info-type {
     padding-left: 27px;
@@ -99,7 +114,7 @@
     background-color: black;
     justify-content: space-evenly;
     margin: 11px 82px;
-    padding: 6px 9px;
+    padding: 0px 9px 6px 7px;
     border-radius: 20px;
 }
 .info-read-comment {

@@ -99,13 +99,6 @@ export const NavBar = (props) => {
 
     const filmesFiltrados = Object.keys(filmes).filter(
         (filme) => filmes[filme].title.toLowerCase().includes(busca.toLowerCase()))
-    // const filmesFiltrados = filmes.filter((filme) => {
-    //     console.log(filme.title)
-    //     filme.title.toLowerCase().includes(busca.toLowerCase())
-    // })
-
-    console.log(busca)
-    console.log('filtro', filmesFiltrados)
 
     return (
         <div className='nav-bar'>

@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 export const Card = (props) => {
-
+console.log(props)
 
   return (
     <div> 
@@ -25,8 +25,8 @@ export const Card = (props) => {
         <CardTitle>{props.item.title}</CardTitle>
       </div>
       <div className='card-body-info'>
-        <GenericText size="small" color="gray">{props.item.season_quantity} Temporadas</GenericText>
-        <GenericText size="small" color="gray">{props.item.duration? props.item.duration : props.item.episodeDuration}</GenericText>
+        <GenericText size="small" color="gray">{props.item.season_quantity}</GenericText>
+        <GenericText size="small" color="gray"> Temps.</GenericText>
       </div>
     </div>
     </Link>

@@ -18,7 +18,7 @@
 }
 .text-size-small {
     font-family: system-ui;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 11px;
 }
 .text-size-medium {
@@ -43,7 +43,7 @@
 .text-size-large {
     font-family: system-ui;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .text-size-large-menor {

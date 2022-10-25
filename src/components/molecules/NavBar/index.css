@@ -76,23 +76,25 @@ a {
 
 .menuNav .nav-ul-li {
     color: white;
-    font-size: 18px;
-    padding: 0px 0px 14px;
+    font-size: 17px;
+    padding: 0px 0px 10px;
     text-transform: none;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .nav-ol {
     list-style: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0px 0px 15px;
 }
 
 .nav-ol-li {
+    text-decoration: none;
     list-style: none;
     color: white;
-    font-size: 16.5px;
+    font-size: 15.5px;
     padding: 0px 17px 4px;
     text-transform: none;
 }
@@ -100,7 +102,7 @@ a {
 .nav-ol-li:first-child {
     list-style: none;
     color: white;
-    font-size: 16.5px;
+    font-size: 15.5px;
     padding: 8px 16px 4px
 }
 
@@ -110,8 +112,9 @@ a {
 }
 
 .nav-hamb-arrow {
-    width: 30px;
+    width: 34.73px;
     height: 30px;
+    padding-right: 4px;
 }
 
 .nav-bar-components {

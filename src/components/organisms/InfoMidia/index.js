@@ -120,12 +120,15 @@ export const InfoMidia = (props) => {
     ]
     const [generos, setGeneros] = React.useState('')
     const [temporadas, setTemporadas] = React.useState([])
-
+    const [expandedSinopse, setExpandedSinopse] = React.useState(false)
+    const toggleActiveClass = () => {
+        setExpandedSinopse(!expandedSinopse)
+    }
     const sinopseDescription = "Agente Oculto segue Gentry, um dos melhores e mais letais mercenários da CIA - que ninguém sabe a real identidade. Ele embarca em uma missão pela Europa para resgatar seu contratante, Sir Donald Fitzroy, e sua família, de Lloyd, membro de uma gigantesca corporação francesa e ex-oficial da CIA. Porém, o mercenário acaba descobrindo segredos bem sujos da agência e Loyd, por sua vez coloca uma recompensa pela cabeça de Gentry, afim de que seja morto, para que ele consiga roubar um bilhão de dólares de um acordo de negócios petrolíferos na Nigéria. Se isso já não fosse o suficiente, o presidente do país, por sua vez, também quer Gentry morto pelo assassinato de seu irmão. Lloyd força Fitzroy a trair Gentry mantendo sua família refém em um castelo na Normandia. Baseado no romance homônimo de Mark Greaney."
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
-    console.log(location, midia)
+    console.log(location.state.props.description.length)
 
 
     const asyncFn = async (id) => {
@@ -242,9 +245,34 @@ export const InfoMidia = (props) => {
             {/* sinopse */}
             <div className='info-sinopse'>
                 <GenericText>Sinopse:</GenericText>
-                <div className='info-sinopse-description'>
-                    <GenericText color="gray">{location.state.props.description}</GenericText>
-                </div>
+                {
+                    location.state.props.description.length > 200
+                        ?
+                        <div>
+                            <div className={`info-sinopse-description-large ${expandedSinopse ? 'info-sinopse-expanded' : 'info-sinopse-compressed'}`}>
+                            <GenericText color="gray">{location.state.props.description}</GenericText>
+                        </div>
+                            <div className='info-sinopse-ler'>
+                                {
+                                    !expandedSinopse
+                                        ? <div className='info-sinopse-ler-mais'
+                                            onClick={() => toggleActiveClass()}>
+                                            <img src={Arrow} className='info-sinopse-arrow-ler' />
+                                            <GenericText>Ler mais</GenericText>
+                                        </div>
+                                        : <div className='info-sinopse-ler-menos'
+                                            onClick={() => toggleActiveClass()}>
+                                            <img src={Arrow} className='info-sinopse-arrow-ler-menos' />
+                                            <GenericText>Ler menos</GenericText>
+                                        </div>
+                                }
+                            </div>
+                        </div>
+                        : <div className='info-sinopse-description'>
+                            <GenericText color="gray">{location.state.props.description}</GenericText>
+                        </div>
+                }
+
             </div>
 
             {/* temporadas */}
@@ -258,6 +286,20 @@ export const InfoMidia = (props) => {
                 })
                 : ''
             }
+            <div className='info-avaliate'>
+                <GenericText>Gostou do filme? Deixe sua avaliação:</GenericText>
+                <div className='info-avaliate-stars'>
+                    <StyledRating
+                        name="customized-color"
+                        defaultValue={2}
+                        getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
+                        precision={0.5}
+                        icon={<Star fontSize="inherit" />}
+                        emptyIcon={<Star color="white" />}
+                    />
+                </div>
+            </div>
+            <div className='Info-write-comment'></div>
 
             {/* sugestoes de midias */}
             <div className='info-footer'>
@@ -272,6 +314,7 @@ export const InfoMidia = (props) => {
                                 <div className='info-footer-cards-carrossel'>
                                     {
                                         midia.series[0].map((ser, inx) => {
+                                            console.log(midia.series[0])
                                             return <CardSlider midia={ser} />
                                         })
                                     }

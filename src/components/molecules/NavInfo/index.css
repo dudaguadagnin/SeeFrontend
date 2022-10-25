@@ -1,162 +1,21 @@
-.menuNav {
-    overflow-y: scroll;
-    list-style: none;
-    position: fixed;
-    top: 70px;
-    background: none;
-    left: 0;
-    width: 0;
-    overflow: hidden;
-
-}
-
-.navbutton {
-    background-color: #3fffd2;
-}
-
-.menuNav.showMenu {
-    background-image: linear-gradient(180deg, #223f5a, #1a1d3c, #12142b, #12142b);
-    width: 100%;
-    padding: 23px 27px;
-    position: absolute;
-    z-index: 1;
-    font-family: system-ui;
-    font-weight: 600;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 24px;
-    /* background-image: linear-gradient(180deg, #14324e, #12142b); */
-    
-}
-
-.showModalPesquisa {
-    width: 100%;
-    background-image: linear-gradient(180deg, #1b4164, #383838, #000000, #12142b);
-    background-color: #12142B;
-    /* padding: 23px 27px; */
-    position: absolute;
-    z-index: 1;
-    height: 100%;
-}
-
-.cards-pesquisa {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.pesquisa-sem-conteudo {
-    margin: 10px 27px;
-}
-
-.text-busca {
-    margin: 0px 27px 20px;
-    display: flex;
-    align-items: flex-end;
-    padding-top: 6px;
-}
-
-.text-busca-img {
-    width: 20px;
-    height: 20px;
-    padding-right: 5px;
-}
-
-a {
-    display: block;
-    padding: 10px 40px;
-    text-decoration: none;
-    color: #3fffd2;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.menuNav .nav-info-ul-li {
-    color: white;
-    font-size: 18px;
-    padding: 0px 0px 14px;
-    text-transform: none;
-    font-weight: 600;
-}
-
-.nav-info-ol {
-    list-style: none;
-    color: white;
-    font-size: 18px;
-    padding: 0px 0px 15px;
-}
-
-.nav-info-ol-li {
-    list-style: none;
-    color: white;
-    font-size: 16.5px;
-    padding: 0px 17px 4px;
-    text-transform: none;
-}
-
-.nav-info-ol-li:first-child {
-    list-style: none;
-    color: white;
-    font-size: 16.5px;
-    padding: 8px 16px 4px
-}
-
 .nav-info-hamb {
     width: 34.73px;
     height: 31px;
 }
 
 .nav-info-hamb-arrow {
-    width: 15px;
-    height: 21px;
+    width: 11px;
+    height: 16px;
 }
 
 .nav-info-bar-components {
     display: flex;
-    padding: 14px 27px 0px 27px;
+    padding: 18px 27px 0px 27px;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-info-search-lupa-open {
-    background-color: #116C72;
-    width: 47px;
-    height: 47px;
-    border-radius: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-info-input-open {
-    height: 63.19px;
-    display: flex;
-    align-items: center;
-}
-
-.nav-info-search-img {
-    width: 28px;
-    height: 27px;
-}
-
-.nav-info-search-input {
-    font-family: system-ui;
-    height: 34px;
-    width: 182px;
-    margin-right: 7px;
-    margin-left: 7px;
-    border-radius: 12px;
-    font-size: 18px;
-    background-color: #e1e1e1;;
-    color: black;
-    padding: 0px 0px 0px 15px;
-    font-weight: 600;
-    border: none;
-    outline: 0;
-}
-
-.nav-info-search-lupa {
-    width: 47px;
-    height: 47px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nav-info-logo {
+    font-size: 17px;
+    color: white;
 }

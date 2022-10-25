@@ -21,7 +21,7 @@ export const NavInfo = (props) => {
                     <img onClick={() => navigate(-1)} className='nav-info-hamb-arrow' src={ArrowRigth} />
                 </div>
                 <div className='nav-info-logo'>
-                    <GenericText>{props.children}</GenericText>
+                    <span>{props.children}</span>
                 </div>
                 <div></div>
             </div>
