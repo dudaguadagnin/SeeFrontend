@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 
 export const ListOption = (props) => {
-    console.log(props)
     return (
         <div className='list-option-content'>
             <div>

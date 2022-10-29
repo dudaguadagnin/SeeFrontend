@@ -1,28 +1,10 @@
 import React from 'react';
-import CardImage from '../../atoms/CardImage';
-import GenericText from '../../atoms/GenericText'
-import Star from '../../atoms/Star'
-import GenreIcon from '../../atoms/GenreIcon'
-import CardSlider from '../Filmes/CardSliderFilmes'
-import NavBar from '../../molecules/NavBar'
-import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
-//import { useNavigation } from '@react-navigation/native';
 import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import Load from '../../atoms/Loader/index.js'
-
 import './index.css'
-
-const StyledRating = styled(Rating)({
-    '& .MuiRating-iconFilled': {
-        color: 'white',
-    },
-    '& .MuiRating-iconHover': {
-        color: 'white',
-    },
-});
 
 export const ListTemps = (props) => {
     const [expandTemp, setexpandTemp] = React.useState(false)

@@ -1,41 +1,26 @@
 import React from 'react';
 import GenericText from '../../atoms/GenericText/index.js'
 import './index.css'
-import Input from '../../atoms/Input/index.js'
 import GenericTitle from '../../atoms/GenericTitle/index.js';
 import NavInfo from '../../molecules/NavInfo/index.js';
-import Button from '../../atoms/Button/index.js';
 import GenericLink from '../../atoms/GenericLink/index.js';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../store/userLogin.js'
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export const Login = (props) => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   const [ButtonActive, setActiveButton] = React.useState(true)
   const [MessageError, setMessageError] = React.useState('')
-
   const Email = () => {
-    console.log('e', document.getElementById("email").value)
     return document.getElementById("email").value
   }
   const Password = () => {
-    console.log('p', document.getElementById("senha").value)
     return document.getElementById("senha").value
   }
-
-  
-  /*
-  console.log(document.getElementById("senha")) if ((document.getElementById("senha").value && document.getElementById("email").value) !== '') {
-    setActiveButton(true)
-  }
-  else {
-    setActiveButton(false)
-  }
- */
-
-
 
   const Enviar = () => {
     console.log(document.getElementById("senha").value)
@@ -46,12 +31,17 @@ export const Login = (props) => {
       password: '123456' */
     })
       .then((res) => {
-        console.log(res)
         dispatch(loginUser(res))
+        navigate('/', { replace: true })
       })
       .catch((err) => {
-        if (err.response.data.error === 'Email or password invalid, try again') { setMessageError('Email ou senha incorretos') }
-        else { setMessageError('Estamos com problemas, volte mais tarde') }
+        if(err.code === 'ERR_NETWORK') {
+          setMessageError('Estamos com problemas, volte mais tarde') 
+        }
+        else if (err.code === 'ERR_BAD_REQUEST') { 
+          setMessageError('Email ou senha incorretos') 
+        } 
+
       })
   }
 
@@ -64,10 +54,10 @@ export const Login = (props) => {
             <GenericTitle type="h1" color="white">Olá!</GenericTitle>
           </div>
           <div className='login-subtitle'>
-            <GenericText>É bom ter você aqui!</GenericText>
+            <GenericText size="medium">É bom ter você aqui!</GenericText>
           </div>
           <div className='login-sub-subtitle'>
-            <GenericText>Para entrar informe seus dados de login</GenericText>
+            <GenericText size="medium">Para entrar informe seus dados de login</GenericText>
           </div>
         </div>
         <div className='login-content-input'>
@@ -79,9 +69,9 @@ export const Login = (props) => {
           </div>
         </div>
         {
-          MessageError 
-          ? <span className='login-message-error'>{MessageError}</span>
-          : ''
+          MessageError
+            ? <span className='login-message-error'>{MessageError}</span>
+            : ''
         }
         <div className='login-content-button'>
           {
@@ -95,19 +85,22 @@ export const Login = (props) => {
                 Entrar
               </div>
           }
-          
+
 
           <div>
             <div className='login-cadastre-se'>
-              <GenericText>Ou acesse com:</GenericText>
+              <GenericText size="medium">Ou acesse com:</GenericText>
               <div>
                 {/* <GenreIcon />
             <GenreIcon />
             <GenreIcon /> */}
               </div>
               <div className='login-sem-cadastro'>
-                <GenericText>Não possui cadastro?</GenericText>
-                <GenericLink color="white" size="medium" line>Clique aqui</GenericLink>
+                <GenericText size="medium">Não possui cadastro?</GenericText>
+                <GenericLink color="white" size="medium" line href="/cadastro">
+                  <GenericText bold='bold'>
+                    Clique aqui
+                    </GenericText></GenericLink>
               </div>
             </div>
           </div>

@@ -13,7 +13,6 @@ export const userlogin = createSlice({
         if(action.payload.status === 200 && action.payload.data.token) {
           state.logado = true
         }
-        console.log(state.email, state.logado)
     }
   },
 })

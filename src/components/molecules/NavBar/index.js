@@ -25,6 +25,10 @@ export const NavBar = (props) => {
     const [filmes, setFilmes] = React.useState([])
     const [series, setSeries] = React.useState([])
     const [navArrow, setNavArrow] = React.useState(false)
+    const midia = useSelector((state) => state.midia)
+
+    console.log(midia)
+    console.log(props)
 
 
     const Toggle = () => {
@@ -44,56 +48,6 @@ export const NavBar = (props) => {
         setNavArrow(props.navArrow)
         asyncFn();
     }, []);
-
-    const acao = []
-    const aventura = []
-    const comedia = []
-    const drama = []
-    const espionagem = []
-    const fantasia = []
-    const ficcao = []
-    const guerra = []
-    const romance = []
-    const suspense = []
-    const terror = []
-
-
-    filmes.map((film, inx) => {
-        console
-        if (film.genre_id === 1) {
-            acao.push(film)
-        }
-        if (film.genre_id === 2) {
-            aventura.push(film)
-        }
-        if (film.genre_id === 3) {
-            comedia.push(film)
-        }
-        if (film.genre_id === 4) {
-            drama.push(film)
-        }
-        if (film.genre_id === 5) {
-            espionagem.push(film)
-        }
-        if (film.genre_id === 6) {
-            fantasia.push(film)
-        }
-        if (film.genre_id === 7) {
-            ficcao.push(film)
-        }
-        if (film.genre_id === 8) {
-            guerra.push(film)
-        }
-        if (film.genre_id === 9) {
-            romance.push(film)
-        }
-        if (film.genre_id === 10) {
-            suspense.push(film)
-        }
-        if (film.genre_id === 11) {
-            terror.push(film)
-        }
-    })
 
     const [busca, setBusca] = React.useState('')
 
@@ -124,7 +78,7 @@ export const NavBar = (props) => {
                                 : <img onClick={Toggle} className='nav-hamb' src={Hamb} />
                             }
                         </div>
-                        <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>
+                        <Link className="nav-ul-li nav-home" to="/Home" state={{ filmes: filmes, series: series }}>
                             <div className='nav-logo' >
                                 <img className='nav-logo' src={logo} />
                             </div>
@@ -162,37 +116,43 @@ export const NavBar = (props) => {
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
                 <Link className="nav-ul-li" to="/Series" state={{ genre: series, type: 'Séries' }}>Séries</Link>
                 <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
+                {
+                    true
+                    ? <Link className="nav-ul-li" to="/Duvidas">Login</Link>
+                    : ''
+                    
+                }
                 <ol className="nav-ol"> Gêneros
-                    <Link className="nav-ol-li" to="/Acao" state={{ genre: acao, type: 'Ação' }}>
+                    <Link className="nav-ol-li" to="/Acao" state={{ genre: midia.acao, type: 'Ação' }}>
                         Ação
                     </Link>
-                    <Link className="nav-ol-li" to="/Aventura" state={{ genre: aventura, type: 'Aventura' }}>
+                    <Link className="nav-ol-li" to="/Aventura" state={{ genre: midia.aventura, type: 'Aventura' }}>
                         Aventura
                     </Link>
-                    <Link className="nav-ol-li" to="/Comedia" state={{ genre: comedia, type: 'Comédia' }}>
+                    <Link className="nav-ol-li" to="/Comedia" state={{ genre: midia.comedia, type: 'Comédia' }}>
                         Comédia
                     </Link>
-                    <Link className="nav-ol-li" to="/Drama" state={{ genre: drama, type: 'Drama' }}>
+                    <Link className="nav-ol-li" to="/Drama" state={{ genre: midia.drama, type: 'Drama' }}>
                         Drama
                     </Link>
-                    <Link className="nav-ol-li" to="/Espionagem" state={{ genre: espionagem, type: 'Espionagem' }}>
+                    <Link className="nav-ol-li" to="/Espionagem" state={{ genre: midia.espionagem, type: 'Espionagem' }}>
                         Espionagem
                     </Link>
-                    <Link className="nav-ol-li" to="/Fantasia" state={{ genre: fantasia, type: 'Fantasia' }}>
+                    <Link className="nav-ol-li" to="/Fantasia" state={{ genre: midia.fantasia, type: 'Fantasia' }}>
                         Fantasia
                     </Link>
-                    <Link className="nav-ol-li" to="/Ficcao" state={{ genre: ficcao, type: 'Ficção científica' }}>
+                    <Link className="nav-ol-li" to="/Ficcao" state={{ genre: midia.ficcao, type: 'Ficção científica' }}>
                         Ficção científica
                     </Link>
-                    <Link className="nav-ol-li" to="/Guerra" state={{ genre: guerra, type: 'Guerra' }}>
+                    <Link className="nav-ol-li" to="/Guerra" state={{ genre: midia.guerra, type: 'Guerra' }}>
                         Guerra
                     </Link>
-                    <Link className="nav-ol-li" to="/Romance" state={{ genre: romance, type: 'Romance' }}>
+                    <Link className="nav-ol-li" to="/Romance" state={{ genre: midia.romance, type: 'Romance' }}>
                         Romance
                     </Link>
-                    <Link className="nav-ol-li" to="/Suspense" state={{ genre: suspense, type: 'Suspense' }}>
+                    <Link className="nav-ol-li" to="/Suspense" state={{ genre: midia.suspense, type: 'Suspense' }}>
                         Suspense</Link>
-                    <Link className="nav-ol-li" to="/Terror" state={{ genre: terror, type: 'Terror' }}>
+                    <Link className="nav-ol-li" to="/Terror" state={{ genre: midia.terror, type: 'Terror' }}>
                         Terror
                     </Link>
                 </ol>

@@ -1,6 +1,4 @@
 import React from 'react';
-import CardSlider from '../../molecules/Filmes/CardSliderFilmes'
-import NavBar from '../../molecules/NavBar'
 import GenericText from '../../atoms/GenericText';
 import Pipocs from '../../../../assets/pipoca.png'
 import Seta from '../../../../assets/seta.png'

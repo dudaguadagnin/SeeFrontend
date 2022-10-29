@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 
 export const CardSearch = (props) => {
-console.log('card', props)
 
   return (
     <div> 

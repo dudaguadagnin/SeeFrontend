@@ -2,6 +2,8 @@
     width: 92px;
     height: 168px;
     border-radius: 9px;
+    background-color: transparent !important;
+    border: none !important;
 }
 .card:first-child {
     padding-left: 27px;
@@ -20,9 +22,9 @@
     padding: 0;
 }
 .card-body-info {
-    margin-top: -9px;
+    margin-top: -15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .card-info-avaliate {
     display: flex;

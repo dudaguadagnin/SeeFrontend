@@ -98,6 +98,9 @@ a {
     padding: 0px 17px 4px;
     text-transform: none;
 }
+.nav-home {
+    padding: 0;
+}
 
 .nav-ol-li:first-child {
     list-style: none;

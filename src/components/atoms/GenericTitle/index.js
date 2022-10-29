@@ -3,7 +3,6 @@ import './index.css'
 
 
 export const GenericTitle = (props) => {
-    console.log(props)
     //type = h1, h2, h3, h4
     return (
         <div className={`generic-title-${props.color} generic-title-${props.bold}`}>

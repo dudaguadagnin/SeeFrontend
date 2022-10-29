@@ -5,7 +5,7 @@
 }
 .info-header {
     display: flex;
-    padding: 15px 27px;
+    padding: 8px 27px 15px;
     align-items: center;
 }
 .inf-flex {
@@ -72,7 +72,7 @@
     height: 100%;
 }
 .info-sinopse-compressed {
-    height: 63px;
+    height: 55px;
 }
 .info-sinopse-arrow-ler {
     width: 16px;

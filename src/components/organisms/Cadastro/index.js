@@ -11,6 +11,7 @@ import Check from '../../../../assets/check-gray.svg'
 import CheckG from '../../../../assets/check-green.svg'
 import CheckV from '../../../../assets/check-red.svg'
 import MiniCheck from '../../atoms/MiniCheck'
+import axios from 'axios';
 
 export const Cadastro = (props) => {
   const [senhaQuant, setsenhaQuant] = React.useState('gray')
@@ -64,10 +65,11 @@ export const Cadastro = (props) => {
     const repitsenha = document.getElementById("repit-senha").value
 
     VerificCredentiais(nome, email, senha, repitsenha)
-
-    if ((senhaQuant === 'green') && (senhaCaracteres === 'green') && (emailCheck === true)) {
-      axios.post(`http://localhost:3000/cadastro`, {
+    console.log(senhaQuant,senhaCaracteres,emailCheck)
+    if ((senhaQuant === 'green') && (senhaCaracteres === 'green') && (emailCheck === 'green')) {
+      axios.post(`http://localhost:3000/signup`, {
         name: nome,
+        last_name: 'dsjfhdfs',
         email: email,
         password: senha
         /* email: 'moreto@email.com',
@@ -78,8 +80,7 @@ export const Cadastro = (props) => {
           dispatch(loginUser(res))
         })
         .catch((err) => {
-          if (err.response.data.error === 'Email or password invalid, try again') { setMessageError('Email ou senha incorretos') }
-          else { setMessageError('Estamos com problemas, volte mais tarde') }
+         
         })
     }
 
@@ -90,7 +91,7 @@ export const Cadastro = (props) => {
       <NavInfo>Cadastro</NavInfo>
       <div className='cadastro-text'>
         <div className='cadastro-title'>
-          <GenericTitle size="large" color="white">Informe os campos abaixo para efetuar seu cadastro</GenericTitle>
+          <GenericText bold="bold" size="large" color="white">Informe os campos abaixo para efetuar seu cadastro</GenericText>
         </div>
         <div className='cadstro-Input'>
           <div className='cadastro-group-input'>

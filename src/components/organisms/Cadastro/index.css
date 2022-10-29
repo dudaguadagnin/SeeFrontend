@@ -28,7 +28,8 @@
 .ja-possui-cadastro {
     display: flex;
     align-items: center;
-    padding: 10px 10px 10px 75px;
+    padding: 10px 25px 10px 25px;
+    justify-content: space-evenly;
 }
 
 .cadastro-mini-check-icon {

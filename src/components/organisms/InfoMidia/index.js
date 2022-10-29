@@ -1,22 +1,18 @@
 import React from 'react';
 import CardImage from '../../atoms/CardImage';
 import GenericText from '../../atoms/GenericText'
-import Star from '../../atoms/Star'
 import GenreIcon from '../../atoms/GenreIcon'
-import CardSlider from '../../molecules/Filmes/CardSliderFilmes'
+import CardSlider from '../../molecules/CardSlider'
 import NavBar from '../../molecules/NavBar'
 import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
-//import { useNavigation } from '@react-navigation/native';
-import CardHorizontalSlider from '../../molecules/CardHorizontalSlider/index.js'
 import ListTemps from '../../molecules/listTemps';
 import {
     useLocation,
     Link
 } from "react-router-dom";
-
 import './index.css'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
@@ -128,7 +124,6 @@ export const InfoMidia = (props) => {
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
-    console.log(location.state.props.description.length)
 
 
     const asyncFn = async (id) => {
@@ -286,7 +281,7 @@ export const InfoMidia = (props) => {
                 })
                 : ''
             }
-            <div className='info-avaliate'>
+            {/* <div className='info-avaliate'>
                 <GenericText>Gostou do filme? Deixe sua avaliação:</GenericText>
                 <div className='info-avaliate-stars'>
                     <StyledRating
@@ -298,7 +293,7 @@ export const InfoMidia = (props) => {
                         emptyIcon={<Star color="white" />}
                     />
                 </div>
-            </div>
+            </div> */}
             <div className='Info-write-comment'></div>
 
             {/* sugestoes de midias */}
@@ -313,9 +308,18 @@ export const InfoMidia = (props) => {
                             <div className='info-footer-cards'>
                                 <div className='info-footer-cards-carrossel'>
                                     {
-                                        midia.series[0].map((ser, inx) => {
-                                            console.log(midia.series[0])
-                                            return <CardSlider midia={ser} />
+                                        midia.filmes.map((ser, inx) => {
+
+                                            return <CardSlider midia={ser[0]} />
+                                        })
+                                    }
+
+                                </div>
+                                <div className='info-footer-cards-carrossel'>
+                                    {
+                                        midia.filmes.map((ser, inx) => {
+
+                                            return <CardSlider midia={ser[1]} />
                                         })
                                     }
 

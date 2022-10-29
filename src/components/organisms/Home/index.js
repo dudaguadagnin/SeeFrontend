@@ -1,22 +1,20 @@
 import React from 'react';
-import CardSliderFilmes from '../../molecules/Filmes/CardSliderFilmes'
-import CardSliderSeries from '../../molecules/Series/CardSliderSeries'
+import CardSlider from '../../molecules/CardSlider'
 import NavBar from '../../molecules/NavBar'
 import GenericText from '../../atoms/GenericText';
-import Connection from '../../../services/backend.js'
 import './index.css'
 import axios from 'axios';
 import { addMidia } from "../../../store/midias.js";
-import { connect } from "react-redux";
 import { useSelector, useDispatch } from 'react-redux'
 import Load from '../../atoms/Loader/index.js'
 import Erro from '../Erro/index.js'
-
-
 export const Home = (props) => {
 
   const dispatch = useDispatch()
   const [Err, setErr] = React.useState(false)
+  const [filmes, setFilmes] = React.useState([])
+  const [series, setSeries] = React.useState([])
+
   React.useEffect(() => {
     const asyncFn = async () => {
       await Promise.all([
@@ -25,6 +23,8 @@ export const Home = (props) => {
         axios.get(`http://localhost:3000/episodios`)
       ])
         .then((res) => {
+          setFilmes(res[0].data);
+          setSeries(res[1].data);
           dispatch(addMidia(res))
         })
         .catch((err) => {
@@ -41,19 +41,17 @@ export const Home = (props) => {
   return (
     <div className='home'>
       {midia.filmes.length === 0
-        ?
-        Err === true ?
-        <Erro />
-        :
-        <div className='home-loading'>
-          <Load />
+        ? Err === true
+          ? <Erro />
+          : <div className='home-loading'>
+            <Load />
           </div>
-        :
-        <div>
+        : <div>
           <NavBar
             activeClassName="active-link"
             onClick={() => closeMenu()}
-            exact
+            filmes={filmes}
+            series={series}
           >
           </NavBar>
           <div className='home-destaques'>
@@ -63,7 +61,7 @@ export const Home = (props) => {
             {midia.filmes[0].map((film, inx) => {
               return (
                 <div className='home-space-carrossel'>
-                  <CardSliderFilmes midia={film} />
+                  <CardSlider midia={film} />
                 </div>)
             })}
           </div>
@@ -74,7 +72,7 @@ export const Home = (props) => {
             {midia.series[0].map((ser, inx) => {
               return (
                 <div className='home-space-carrossel'>
-                  <CardSliderSeries midia={ser}/>
+                  <CardSlider midia={ser} />
                 </div>)
             })}
           </div>

@@ -4,7 +4,7 @@ import './index.css'
 import Carousel from 'react-native-snap-carousel'
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
 
-export const CardSliderFilmes = (props) => {
+export const CardSlider = (props) => {
 
     const SLIDER_WIDTH = Dimensions.get('window').width + 1
     const ITEM_WIDTH = Math.round(SLIDER_WIDTH)
@@ -25,4 +25,4 @@ export const CardSliderFilmes = (props) => {
         </div>
     );
 }
-export default CardSliderFilmes;
+export default CardSlider;

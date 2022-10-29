@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './src/components/organisms/Home';
 import InfoMidia from './src/components/organisms/InfoMidia';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Card from './src/components/molecules/Filmes/Card';
+import Card from './src/components/molecules/Card';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import VideoPlayer from './src/components/organisms/VideoPlayer';
 import { View } from 'react-native-web';

@@ -9,7 +9,6 @@ import {
 
 export const RespostaDuvida = (props) => {
     const location = useLocation()
-    console.log(location)
     return (
         <div className='resposta-duvida-content'>
             <NavBar
@@ -28,7 +27,6 @@ export const RespostaDuvida = (props) => {
                 </div>
                 <div className='resposta-duvida-body-text'>
                     {location.state.props.pode.map((pode, inx) => {
-                        console.log(pode)
                         return (<div className='resposta-text'><GenericText color="gray" bold="bold">{pode}</GenericText></div>)
 
                     })}
