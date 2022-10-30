@@ -26,10 +26,12 @@ export const NavBar = (props) => {
     const [series, setSeries] = React.useState([])
     const [navArrow, setNavArrow] = React.useState(false)
     const midia = useSelector((state) => state.midia)
+    let user = (useSelector((state) => state.login))
 
-    console.log(midia)
-    console.log(props)
+    console.log(user)
 
+    console.log(midia.busca)
+    console.log(filmes)
 
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
@@ -50,9 +52,11 @@ export const NavBar = (props) => {
     }, []);
 
     const [busca, setBusca] = React.useState('')
+    
 
-    const filmesFiltrados = Object.keys(filmes).filter(
-        (filme) => filmes[filme].title.toLowerCase().includes(busca.toLowerCase()))
+    const filmesFiltrados = Object.keys(midia.busca).filter((filme) => {
+        return midia.busca[filme].title.toLowerCase().includes(busca.toLowerCase())
+    })
 
     return (
         <div className='nav-bar'>
@@ -112,16 +116,17 @@ export const NavBar = (props) => {
 
             {/* opçoes do menu */}
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
+                {
+                    user.logado
+                    ? ''
+                    : <Link className="nav-ul-li" to="/Login">Login/Cadastro</Link>
+                    
+                }
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
                 <Link className="nav-ul-li" to="/Series" state={{ genre: series, type: 'Séries' }}>Séries</Link>
                 <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
-                {
-                    true
-                    ? <Link className="nav-ul-li" to="/Duvidas">Login</Link>
-                    : ''
-                    
-                }
+                
                 <ol className="nav-ol"> Gêneros
                     <Link className="nav-ol-li" to="/Acao" state={{ genre: midia.acao, type: 'Ação' }}>
                         Ação
@@ -175,7 +180,7 @@ export const NavBar = (props) => {
                                 filmesFiltrados.map((filme) => (
                                     <CardSearch
                                         key={filme}
-                                        item={filmes[filme]}
+                                        item={midia.busca[filme]}
                                     ></CardSearch>
                                 ))
                                 : ''

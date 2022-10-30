@@ -8,9 +8,10 @@ export const userlogin = createSlice({
   },
   reducers: {
     loginUser: (state, action) => {
-      
+      console.log(action)
         state.email = action.payload.data.user.email
         if(action.payload.status === 200 && action.payload.data.token) {
+          console.log('logado')
           state.logado = true
         }
     }

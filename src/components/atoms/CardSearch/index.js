@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 
 export const CardSearch = (props) => {
-
   return (
     <div> 
       <Link className='link-card-search' to="/InfoMidia" state={{props: props.item, filme:true}}>

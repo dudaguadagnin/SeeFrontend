@@ -9,7 +9,6 @@ import './index.css'
 
 export const Genero = (props) => {
   const location = useLocation()
-  console.log(location, props)
 
   return (
     <div className='genero'>

@@ -11,81 +11,69 @@ import Check from '../../../../assets/check-gray.svg'
 import CheckG from '../../../../assets/check-green.svg'
 import CheckV from '../../../../assets/check-red.svg'
 import MiniCheck from '../../atoms/MiniCheck'
+import { loginUser } from '../../../store/userLogin.js'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export const Cadastro = (props) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
   const [senhaQuant, setsenhaQuant] = React.useState('gray')
   const [senhaCaracteres, setsenhaCaracteres] = React.useState('gray')
   const [repitSenhaCheck, setRepitSenhaCheck] = React.useState('gray')
   const [emailCheck, setEmailCheck] = React.useState('gray')
 
-  const Email = (email) => {
-    var verificemail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
-    if (verificemail.test(email)) {
-      setEmailCheck('green')
-      return verificemail.test(email)
-    } else {
-      setEmailCheck('red')
-      return verificemail.test(email)
-    }
-  }
-  const Password = (senha) => {
-    var caracteres = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@#]{1,}$/
-    var quantidade = /^(?=.*\d)[0-9a-zA-Z]{6,}$/
-    if (quantidade.test(senha)) {
-      setsenhaQuant('green')
-    }
-    if (!quantidade.test(senha)) {
-      setsenhaQuant('red')
-    }
-    if (caracteres.test(senha)) {
-      setsenhaCaracteres('green')
-    }
-    if (!caracteres.test(senha)) {
-      setsenhaCaracteres('red')
-    }
-  }
-  const VerificCredentiais = (nome, email, senha, repitsenha) => {
-
-
-    if (nome !== '') {
-      Email(email)
-      if (repitsenha !== senha) {
-        setRepitSenhaCheck('red')
-      } else {
-        setRepitSenhaCheck('green')
-        Password(senha)
-      }
-    }
-  }
   const Enviar = () => {
     const nome = document.getElementById("nome").value
     const email = document.getElementById("email").value
     const senha = document.getElementById("senha").value
     const repitsenha = document.getElementById("repit-senha").value
+    var verificemail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
+    var caracteres = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@#]{1,}$/
+    var quantidade = /^(?=.*\d)[0-9a-zA-Z]{6,}$/
+    if (nome !== '') {
+      if (repitsenha == senha) {
+        setRepitSenhaCheck('green')
+        if (quantidade.test(senha)) {
+          setsenhaQuant('green')
+          if (caracteres.test(senha)) {
+            setsenhaCaracteres('green')
+            if (verificemail.test(email)) {
+              setEmailCheck('green')
+              axios.post(`http://localhost:3000/signup`, {
+                name: nome,
+                last_name: 'dsjfhdfs',
+                email: email,
+                password: senha
+                /* email: 'moreto@email.com',
+                password: '123456'  */
+              })
+                .then((res) => {
+                  dispatch(loginUser(res))
+                  navigate('/', { replace: true })
+                })
+                .catch((err) => {
+                })
+            }
+          }
 
-    VerificCredentiais(nome, email, senha, repitsenha)
-    console.log(senhaQuant,senhaCaracteres,emailCheck)
-    if ((senhaQuant === 'green') && (senhaCaracteres === 'green') && (emailCheck === 'green')) {
-      axios.post(`http://localhost:3000/signup`, {
-        name: nome,
-        last_name: 'dsjfhdfs',
-        email: email,
-        password: senha
-        /* email: 'moreto@email.com',
-        password: '123456'  */
-      })
-        .then((res) => {
-          console.log(res)
-          dispatch(loginUser(res))
-        })
-        .catch((err) => {
-         
-        })
+        }
+      }
     }
-
+    if (repitsenha !== senha) {
+      setRepitSenhaCheck('red')
+    }
+    if (!quantidade.test(senha)) {
+      setsenhaQuant('red')
+    }
+    if (!caracteres.test(senha)) {
+      setsenhaCaracteres('red')
+    }
+    if (!verificemail.test(email)) {
+      setEmailCheck('red')
+    }
   }
-
   return (
     <div className='cadastro-content'>
       <NavInfo>Cadastro</NavInfo>
@@ -155,7 +143,7 @@ export const Cadastro = (props) => {
       </div>
       <div className='ja-possui-cadastro'>
         <GenericText>Já possui cadastro?</GenericText>
-        <GenericLink color="white" size="medium" line>Clique aqui</GenericLink>
+        <GenericLink color="white" size="medium" line href="/login">Clique aqui</GenericLink>
       </div>
     </div>
   );

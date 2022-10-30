@@ -35,12 +35,12 @@ export const Login = (props) => {
         navigate('/', { replace: true })
       })
       .catch((err) => {
-        if(err.code === 'ERR_NETWORK') {
-          setMessageError('Estamos com problemas, volte mais tarde') 
+        if (err.code === 'ERR_NETWORK') {
+          setMessageError('Estamos com problemas, volte mais tarde')
         }
-        else if (err.code === 'ERR_BAD_REQUEST') { 
-          setMessageError('Email ou senha incorretos') 
-        } 
+        else if (err.code === 'ERR_BAD_REQUEST') {
+          setMessageError('Email ou senha incorretos')
+        }
 
       })
   }
@@ -74,18 +74,9 @@ export const Login = (props) => {
             : ''
         }
         <div className='login-content-button'>
-          {
-            ButtonActive
-              ?
-              <div onClick={() => Enviar()} className='login-button login-button-large button-active'>
-                Entrar
-              </div>
-              :
-              <div className='login-button login-button-large button-disabled'>
-                Entrar
-              </div>
-          }
-
+          <div onClick={() => Enviar()} className='login-button login-button-large button-active'>
+            Entrar
+          </div>
 
           <div>
             <div className='login-cadastre-se'>
@@ -100,7 +91,8 @@ export const Login = (props) => {
                 <GenericLink color="white" size="medium" line href="/cadastro">
                   <GenericText bold='bold'>
                     Clique aqui
-                    </GenericText></GenericLink>
+                  </GenericText>
+                  </GenericLink>
               </div>
             </div>
           </div>
