@@ -30,9 +30,6 @@ export const NavBar = (props) => {
 
     console.log(user)
 
-    console.log(midia.busca)
-    console.log(filmes)
-
     const Toggle = () => {
         setnewNavBarNormalOpen(!newNavBarNormalOpen)
     }
@@ -52,7 +49,7 @@ export const NavBar = (props) => {
     }, []);
 
     const [busca, setBusca] = React.useState('')
-    
+
 
     const filmesFiltrados = Object.keys(midia.busca).filter((filme) => {
         return midia.busca[filme].title.toLowerCase().includes(busca.toLowerCase())
@@ -117,16 +114,17 @@ export const NavBar = (props) => {
             {/* opçoes do menu */}
             <ul className={`menuNav ${newNavBarNormalOpen ? " showMenu" : ""}`}>
                 {
-                    user.logado
-                    ? ''
-                    : <Link className="nav-ul-li" to="/Login">Login/Cadastro</Link>
-                    
+                    !user.logado
+                        ? <Link className="nav-ul-li" to="/Login">Login/Cadastro</Link>
+                        : <Link className="nav-ul-li" to="/Favoritos">Favoritos</Link>
+                        
                 }
                 <Link className="nav-ul-li" to="/Home" state={{ filmes: filmes, series: series }}>Inicial</Link>
                 <Link className="nav-ul-li" to="/Filmes" state={{ genre: filmes, type: 'Filmes' }}>Filmes</Link>
                 <Link className="nav-ul-li" to="/Series" state={{ genre: series, type: 'Séries' }}>Séries</Link>
+
                 <Link className="nav-ul-li" to="/Duvidas">Dúvidas frequentes</Link>
-                
+
                 <ol className="nav-ol"> Gêneros
                     <Link className="nav-ol-li" to="/Acao" state={{ genre: midia.acao, type: 'Ação' }}>
                         Ação

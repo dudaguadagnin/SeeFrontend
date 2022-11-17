@@ -1,0 +1,15 @@
+.favoritos {
+    background-color: #12142A;
+    height: 100%;
+}
+.favoritos-loading {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.favoritos-card {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

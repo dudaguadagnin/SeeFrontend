@@ -6,6 +6,8 @@ import CardSlider from '../../molecules/CardSlider'
 import NavBar from '../../molecules/NavBar'
 import Play from '../../../../assets/play.png'
 import Arrow from '../../../../assets/arrow.png'
+import addfavorit from '../../../../assets/addfavorit.svg'
+import favorit from '../../../../assets/favorit.svg'
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
 import ListTemps from '../../molecules/listTemps';
@@ -117,6 +119,8 @@ export const InfoMidia = (props) => {
     const [generos, setGeneros] = React.useState('')
     const [temporadas, setTemporadas] = React.useState([])
     const [expandedSinopse, setExpandedSinopse] = React.useState(false)
+    const [adicionado, setadicionado] = React.useState(false)
+
     const toggleActiveClass = () => {
         setExpandedSinopse(!expandedSinopse)
     }
@@ -124,7 +128,7 @@ export const InfoMidia = (props) => {
     //const navigation = useNavigation();
     const location = useLocation()
     const midia = useSelector((state) => state.midia)
-
+    const user = useSelector((state) => state.login)
 
     const asyncFn = async (id) => {
         await Promise.all([
@@ -174,6 +178,27 @@ export const InfoMidia = (props) => {
     let seasonquantity = []
     for (let i = 0; i < location.state.props.season_quantity; i++) {
         seasonquantity.push(i)
+    }
+
+    const AddFavoritos = () => {
+        console.log(user)
+        axios.post(`http://localhost:3000/insertObjectInMineList`, {
+            user_id: user.user_id,
+            title: location.state.props.title,
+            description: location.state.props.description,
+            genre_id: location.state.props.genre_id,
+            duration: location.state.props.duration,
+            year: location.state.props.year,
+            image: location.state.props.image,
+            parental_rating: location.state.props.parental_rating,
+        })
+            .then((res) => {
+                console.log(res)
+                setadicionado(true)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return (
@@ -236,6 +261,15 @@ export const InfoMidia = (props) => {
                     }
                 </div>
             </div>
+            {/** favoritar */}
+            <div className='info-favoritos' onClick={() => AddFavoritos()}>
+                {
+                    adicionado
+                        ? <img className='info-favoritos-img' src={favorit} />
+                        : <img className='info-favoritos-img' src={addfavorit} />
+                }
+                <GenericText>Adicionar aos favoritos</GenericText>
+            </div>
 
             {/* sinopse */}
             <div className='info-sinopse'>
@@ -245,8 +279,8 @@ export const InfoMidia = (props) => {
                         ?
                         <div>
                             <div className={`info-sinopse-description-large ${expandedSinopse ? 'info-sinopse-expanded' : 'info-sinopse-compressed'}`}>
-                            <GenericText color="gray">{location.state.props.description}</GenericText>
-                        </div>
+                                <GenericText color="gray">{location.state.props.description}</GenericText>
+                            </div>
                             <div className='info-sinopse-ler'>
                                 {
                                     !expandedSinopse

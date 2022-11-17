@@ -22,16 +22,16 @@ import Duvidas from './src/components/organisms/Duvidas/index.js';
 import RespostaDuvida from './src/components/organisms/RespostaDuvida/index.js';
 import Login from './src/components/organisms/Login';
 import Cadastro from './src/components/organisms/Cadastro';
+import Favoritos from './src/components/organisms/Favoritos';
 
 export default function App() {
   return (
-    
     <Provider store={store}>
       <BrowserRouter >
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Home" element={<Home />} />
-         
+          <Route exact path="/Favoritos" element={<Favoritos />} />
           <Route path="/Filmes" element={<Genero />} />
           <Route path="/Series" element={<Genero />} />
           <Route path="/Player" element={<VideoPlayer />}/>
