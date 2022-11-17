@@ -13,7 +13,8 @@ import { styled } from '@mui/material/styles';
 import ListTemps from '../../molecules/listTemps';
 import {
     useLocation,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
 import './index.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -33,94 +34,11 @@ const converteStringEmInteiro = (dados) => {
 }
 
 export const InfoMidia = (props) => {
-    const filmes = [
-        {
-            title: 'Filme titulo',
-            description: 'é um filme bacana',
-            genre: 'Ação',
-            evaluation: '4.5',
-            duration: '2h, 30min',
-            year: 2020,
-            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-            title: 'Filme titulo',
-            description: 'é um filme bacana',
-            genre: 'Ação',
-            evaluation: '4.5',
-            duration: '2h, 30min',
-            year: 2020,
-            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-            title: 'Filme titulo',
-            description: 'é um filme bacana',
-            genre: 'Ação',
-            evaluation: '4.5',
-            duration: '2h, 30min',
-            year: 2020,
-            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-            title: 'Filme titulo',
-            description: 'é um filme bacana',
-            genre: 'Ação',
-            evaluation: '4.5',
-            duration: '2h, 30min',
-            year: 2020,
-            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-        {
-            title: 'Filme titulo',
-            description: 'é um filme bacana',
-            genre: 'Ação',
-            evaluation: '4.5',
-            duration: '2h, 30min',
-            year: 2020,
-            image: 'https://i.pinimg.com/222x/f5/f7/d0/f5f7d027093a8879efb23b986dfa5a3e.jpg'
-        },
-    ]
-    const tempsss = [
-        [
-            {
-                title: 'serie 1',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            },
-            {
-                title: 'serie 2',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            },
-            {
-                title: 'serie 3',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            }
-        ],
-        [
-            {
-                title: 'serie 1',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            },
-            {
-                title: 'serie 2',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            },
-            {
-                title: 'serie 3',
-                duration: '2h, 30min',
-                cartaz: 'https://occ-0-2529-1740.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYtfkVLxw6lawtNwtIyOhLDnTEXi2AvuyqYG3i-jZ3Y1mrRsZCJAt8mcAxiZqZHQvCS2pl4StiieJUrohIS70br7yzenTsQqVgsVKq3C5A8vuoL_GstEWeB7.jpg?r=d74',
-            }
-        ],
-    ]
     const [generos, setGeneros] = React.useState('')
     const [temporadas, setTemporadas] = React.useState([])
     const [expandedSinopse, setExpandedSinopse] = React.useState(false)
     const [adicionado, setadicionado] = React.useState(false)
-
+    const navigate = useNavigate();
     const toggleActiveClass = () => {
         setExpandedSinopse(!expandedSinopse)
     }
@@ -181,24 +99,27 @@ export const InfoMidia = (props) => {
     }
 
     const AddFavoritos = () => {
-        console.log(user)
-        axios.post(`http://localhost:3000/insertObjectInMineList`, {
-            user_id: user.user_id,
-            title: location.state.props.title,
-            description: location.state.props.description,
-            genre_id: location.state.props.genre_id,
-            duration: location.state.props.duration,
-            year: location.state.props.year,
-            image: location.state.props.image,
-            parental_rating: location.state.props.parental_rating,
-        })
-            .then((res) => {
-                console.log(res)
-                setadicionado(true)
+        if (user.logado) {
+            axios.post(`http://localhost:3000/insertObjectInMineList`, {
+                user_id: user.user_id,
+                title: location.state.props.title,
+                description: location.state.props.description,
+                genre_id: location.state.props.genre_id,
+                duration: location.state.props.duration,
+                year: location.state.props.year,
+                image: location.state.props.image,
+                parental_rating: location.state.props.parental_rating,
             })
-            .catch((err) => {
-                console.log(err)
-            })
+                .then((res) => {
+                    console.log(res)
+                    setadicionado(true)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            navigate('/Login', { replace: true })
+        }
     }
 
     return (
@@ -252,7 +173,7 @@ export const InfoMidia = (props) => {
                     </div>
                     {location.state.props.season_quantity ? ''
                         :
-                        <Link className="info-link-assistir" to="/Player" state={location.state.props.title}>
+                        <Link className="info-link-assistir" to={user.logado ? "/Player": '/Login'} state={location.state.props.title}>
                             <div className='info-header-button'>
                                 <img className='info-play-button' src={Play} />
                                 <span className='info-header-assistir'>Assistir agora</span>
